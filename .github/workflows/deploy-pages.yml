@@ -32,7 +32,7 @@ jobs:
         run: |
           repository_name="${GITHUB_REPOSITORY#*/}"
           owner_name="${GITHUB_REPOSITORY%/*}"
-          if [[ "$repository_name" == "$owner_name.github.io" ]]; then
+          if [[ -f docs/public/CNAME || "$repository_name" == "$owner_name.github.io" ]]; then
             echo "DOCS_BASE=/" >> "$GITHUB_ENV"
           else
             echo "DOCS_BASE=/$repository_name/" >> "$GITHUB_ENV"
