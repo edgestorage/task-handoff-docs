@@ -2,6 +2,8 @@
 
 TaskHandoff Desktop combines the control-plane UI, local services, and native windows for personal workstations.
 
+See [Install and Sign In](/en/guide/install#install-desktop) for platform-specific installation. Download Desktop only from the [official TaskHandoff GitHub Releases](https://github.com/edgestorage/task-handoff/releases/latest).
+
 ## Startup and Tray
 
 Desktop checks for existing Control Plane and Node Agent processes and can reuse a compatible healthy Node Agent. An unknown process on the preferred port is not terminated merely because the port is occupied.

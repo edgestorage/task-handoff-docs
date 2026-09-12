@@ -6,7 +6,7 @@ const zhSidebar = [
   {
     text: '开始使用',
     items: [
-      { text: '手册目录', link: '/' },
+      { text: '手册目录', link: '/manual' },
       { text: '认识 TaskHandoff', link: '/guide/' },
       { text: '安装与登录', link: '/guide/install' },
       { text: '界面与工作台', link: '/guide/workbench' },
@@ -39,8 +39,16 @@ const zhSidebar = [
     items: [
       { text: '桌面端', link: '/clients/desktop' },
       { text: '移动端', link: '/clients/mobile' },
-      { text: '聊天桥接', link: '/integrations/chat' },
-      { text: '远程访问', link: '/integrations/remote-access' }
+      { text: '聊天桥接', link: '/integrations/chat' }
+    ]
+  },
+  {
+    text: '远程访问',
+    items: [
+      { text: '远程访问总览', link: '/integrations/remote-access' },
+      { text: 'Control Plane 公网访问', link: '/integrations/public-control-plane' },
+      { text: '连接远程节点', link: '/integrations/remote-nodes' },
+      { text: 'Thandoff 账户', link: '/integrations/thandoff-account' }
     ]
   },
   {
@@ -77,7 +85,7 @@ const enSidebar = [
   {
     text: 'Get Started',
     items: [
-      { text: 'Guide Index', link: '/en/' },
+      { text: 'Guide Index', link: '/en/manual' },
       { text: 'About TaskHandoff', link: '/en/guide/' },
       { text: 'Install and Sign In', link: '/en/guide/install' },
       { text: 'Interface and Workbench', link: '/en/guide/workbench' },
@@ -110,8 +118,16 @@ const enSidebar = [
     items: [
       { text: 'Desktop Client', link: '/en/clients/desktop' },
       { text: 'Mobile Client', link: '/en/clients/mobile' },
-      { text: 'Chat Bridges', link: '/en/integrations/chat' },
-      { text: 'Remote Access', link: '/en/integrations/remote-access' }
+      { text: 'Chat Bridges', link: '/en/integrations/chat' }
+    ]
+  },
+  {
+    text: 'Remote Access',
+    items: [
+      { text: 'Remote Access Overview', link: '/en/integrations/remote-access' },
+      { text: 'Expose the Control Plane', link: '/en/integrations/public-control-plane' },
+      { text: 'Connect Remote Nodes', link: '/en/integrations/remote-nodes' },
+      { text: 'Thandoff Account', link: '/en/integrations/thandoff-account' }
     ]
   },
   {
@@ -148,6 +164,9 @@ export default defineConfig({
   base,
   title: 'TaskHandoff 用户手册',
   description: 'TaskHandoff 安装、配置与日常使用指南',
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }]
+  ],
   cleanUrls: true,
   lastUpdated: true,
   vite: {
@@ -203,6 +222,11 @@ export default defineConfig({
     }
   },
   themeConfig: {
+    logo: {
+      light: '/brand/task-handoff-light.svg',
+      dark: '/brand/task-handoff-dark.svg',
+      alt: 'TaskHandoff'
+    },
     siteTitle: 'TaskHandoff',
     search: {
       provider: 'local',

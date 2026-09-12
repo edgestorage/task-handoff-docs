@@ -2,6 +2,8 @@
 
 TaskHandoff Desktop 把控制面板、Node Agent 和桌面窗口组合在一个应用中，适合个人工作站和本地开发环境。
 
+安装包和各平台安装步骤见[安装与登录](/guide/install#安装桌面端)。桌面安装包只从 [TaskHandoff 官方 GitHub Releases](https://github.com/edgestorage/task-handoff/releases/latest)下载。
+
 ## 启动
 
 桌面端启动时会检查本机是否已有 Control Plane 和 Node Agent。兼容且健康的 Node Agent 可以复用；未知程序占用默认端口时，应用可能分配其他端口，不会仅凭端口占用终止进程。

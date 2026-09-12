@@ -1,12 +1,20 @@
-import { nextTick, onMounted, onUnmounted, watch } from 'vue'
+import { h, nextTick, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { OverlayScrollbars, type OverlayScrollbars as OverlayScrollbarsInstance } from 'overlayscrollbars'
 import 'overlayscrollbars/overlayscrollbars.css'
+import HomePage from './HomePage.vue'
+import ImageViewer from './ImageViewer.vue'
 import './style.css'
 
 export default {
   extends: DefaultTheme,
+  Layout: () => h(DefaultTheme.Layout, null, {
+    'layout-bottom': () => h(ImageViewer)
+  }),
+  enhanceApp({ app }) {
+    app.component('HomePage', HomePage)
+  },
   setup() {
     const route = useRoute()
     let sidebarScrollbar: OverlayScrollbarsInstance | undefined
