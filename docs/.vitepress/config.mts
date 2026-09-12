@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 
+const base = process.env.DOCS_BASE ?? '/'
+
 const zhSidebar = [
   {
     text: '开始使用',
@@ -143,6 +145,7 @@ const enSidebar = [
 ]
 
 export default defineConfig({
+  base,
   title: 'TaskHandoff 用户手册',
   description: 'TaskHandoff 安装、配置与日常使用指南',
   cleanUrls: true,
