@@ -8,7 +8,7 @@ const props = defineProps<{ locale?: 'zh' | 'en' }>()
 const copy = {
   zh: {
     eyebrow: '自托管 AI 工作空间控制面板',
-    description: '在同一个地方运行 Codex 与 OpenCode，管理工作空间、审阅代码。本机与远程任务，随时接着做',
+    description: '在一个自托管工作台中运行 Codex 与 OpenCode，管理本机和远程 AI 开发任务、工作空间与代码审阅',
     primary: '开始使用',
     secondary: '看看工作台',
     toolsLabel: '为你熟悉的工具而建',
@@ -23,7 +23,7 @@ const copy = {
       { label: 'AI 会话', image: '/images/ai-session-view-modes.png', alt: 'TaskHandoff AI 会话：查看当前任务和工具活动', detail: '聚焦当前回合，执行过程与完整历史随时可查', height: 1424 },
       { label: '远程节点', image: '/images/node-management-overview.png', alt: 'TaskHandoff 节点管理：统一查看本机与远程运行环境', detail: '环境可以分布各处，管理入口始终只有一个', height: 1424 }
     ],
-    heroLines: ['把 AI 开发任务', '交给一个工作台'],
+    heroLines: ['TaskHandoff', '自托管 AI 开发工作台'],
     previewLabel: '工作台预览',
     workflowTitle: '不只发起对话，也管理工作的全程',
     workflowDescription: '每一步都有明确的运行环境、执行状态和交付去向。你可以专注于决策，把过程交给 TaskHandoff',
@@ -67,7 +67,7 @@ const copy = {
   },
   en: {
     eyebrow: 'A self-hosted AI workspace control plane',
-    description: 'Run Codex and OpenCode, manage workspaces, and review code in one place. Pick up your work across local and remote environments',
+    description: 'Run Codex and OpenCode in one self-hosted workbench for local and remote AI development, workspace management, and code review',
     primary: 'Get started',
     secondary: 'Explore the workbench',
     toolsLabel: 'Built around the tools you already use',
@@ -82,7 +82,7 @@ const copy = {
       { label: 'AI sessions', image: '/images/ai-session-view-modes.png', alt: 'TaskHandoff AI session showing the current task and tool activity', detail: 'Focus on the current turn. Keep the full history within reach', height: 1424 },
       { label: 'Remote nodes', image: '/images/node-management-overview.png', alt: 'TaskHandoff node management for local and remote environments', detail: 'Different environments. One place to keep track of them', height: 1424 }
     ],
-    heroLines: ['Your AI development', 'One workbench'],
+    heroLines: ['TaskHandoff', 'The self-hosted AI development workbench'],
     previewLabel: 'Workbench preview',
     workflowTitle: 'Manage the whole job, not just the conversation',
     workflowDescription: 'Every step has a clear environment, execution state, and delivery path. Focus on decisions while TaskHandoff keeps the process together',

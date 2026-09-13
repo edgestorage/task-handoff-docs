@@ -1,6 +1,83 @@
 import { defineConfig } from 'vitepress'
+import { readFileSync } from 'node:fs'
 
 const base = process.env.DOCS_BASE ?? '/'
+const siteOrigin = 'https://docs.thandoff.com'
+const socialImage = `${siteOrigin}/images/workbench-light-mode.png`
+
+function pageRoute(relativePath: string) {
+  const path = relativePath.replace(/\.md$/, '')
+
+  if (path === 'index') return '/'
+  if (path.endsWith('/index')) return `/${path.slice(0, -'/index'.length)}/`
+  return `/${path}`
+}
+
+function localizedRoutes(route: string) {
+  const english = route === '/en/' || route.startsWith('/en/')
+  const chineseRoute = english ? route.slice(3) || '/' : route
+  const englishRoute = english ? route : route === '/' ? '/en/' : `/en${route}`
+
+  return { english, chineseRoute, englishRoute }
+}
+
+function absoluteUrl(route: string) {
+  return new URL(route, siteOrigin).href
+}
+
+function plainText(markdown: string) {
+  return markdown
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[`*_~]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function truncateDescription(value: string, maxLength: number) {
+  if (value.length <= maxLength) return value
+
+  const shortened = value.slice(0, maxLength + 1)
+  const wordBoundary = shortened.lastIndexOf(' ')
+  const end = wordBoundary > maxLength * 0.75 ? wordBoundary : maxLength
+  return `${shortened.slice(0, end).replace(/[，。；、,.!?;:\s]+$/u, '')}…`
+}
+
+function descriptionFromSource(filePath: string, title: string) {
+  const source = readFileSync(new URL(`../${filePath}`, import.meta.url), 'utf8')
+    .replace(/^---\s*[\s\S]*?\s*---\s*/u, '')
+    .replace(/```[\s\S]*?```/g, '')
+
+  const paragraph = source.split(/\n\s*\n/).find((block) => {
+    const value = block.trim()
+    return value
+      && !/^(?:#{1,6}\s|:::|\|\s|[-*+]\s|\d+[.)]\s|<|!\[)/u.test(value)
+      && !value.includes('\n|')
+  })
+
+  const summary = plainText(paragraph ?? '')
+  const english = filePath.startsWith('en/')
+  const description = summary
+    ? `${title}${english ? '. ' : '。'}${summary}`
+    : english
+      ? `${title} in the TaskHandoff user guide.`
+      : `TaskHandoff 用户手册：${title}。`
+
+  return truncateDescription(description, english ? 155 : 120)
+}
+
+function verificationHead() {
+  const entries = [
+    ['google-site-verification', process.env.GOOGLE_SITE_VERIFICATION],
+    ['msvalidate.01', process.env.BING_SITE_VERIFICATION],
+    ['baidu-site-verification', process.env.BAIDU_SITE_VERIFICATION]
+  ]
+
+  return entries
+    .filter((entry): entry is [string, string] => Boolean(entry[1]))
+    .map(([name, content]) => ['meta', { name, content }] as const)
+}
 
 const zhSidebar = [
   {
@@ -165,10 +242,121 @@ export default defineConfig({
   title: 'TaskHandoff 用户手册',
   description: 'TaskHandoff 安装、配置与日常使用指南',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }]
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
+    ['meta', { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' }],
+    ['meta', { name: 'theme-color', content: '#171717', media: '(prefers-color-scheme: dark)' }],
+    ...verificationHead()
   ],
   cleanUrls: true,
   lastUpdated: true,
+  sitemap: {
+    hostname: siteOrigin,
+    lastmodDateOnly: true,
+    transformItems: (items) => items.map((item) => {
+      const route = new URL(item.url, siteOrigin).pathname
+      const { chineseRoute, englishRoute } = localizedRoutes(route)
+
+      return {
+        ...item,
+        links: [
+          { lang: 'zh-CN', url: absoluteUrl(chineseRoute) },
+          { lang: 'en-US', url: absoluteUrl(englishRoute) },
+          { lang: 'x-default', url: absoluteUrl(chineseRoute) }
+        ]
+      }
+    })
+  },
+  transformPageData(pageData) {
+    if (!pageData.filePath || pageData.frontmatter.description) return
+    return { description: descriptionFromSource(pageData.filePath, pageData.title) }
+  },
+  transformHead({ pageData, title, description }) {
+    if (pageData.isNotFound) {
+      return [['meta', { name: 'robots', content: 'noindex, nofollow' }]]
+    }
+
+    const route = pageRoute(pageData.relativePath)
+    const canonical = absoluteUrl(route)
+    const { english, chineseRoute, englishRoute } = localizedRoutes(route)
+    const locale = english ? 'en_US' : 'zh_CN'
+    const alternateLocale = english ? 'zh_CN' : 'en_US'
+    const inLanguage = english ? 'en-US' : 'zh-CN'
+    const isHome = route === '/' || route === '/en/'
+    const structuredData = isHome
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': `${siteOrigin}/#website`,
+              name: 'TaskHandoff',
+              url: siteOrigin
+            },
+            {
+              '@type': 'SoftwareApplication',
+              '@id': `${siteOrigin}/#software`,
+              name: 'TaskHandoff',
+              url: siteOrigin,
+              applicationCategory: 'DeveloperApplication',
+              operatingSystem: 'Windows, macOS, Linux, Web'
+            },
+            {
+              '@type': 'WebPage',
+              '@id': `${canonical}#webpage`,
+              name: title,
+              url: canonical,
+              description,
+              inLanguage,
+              isPartOf: { '@id': `${siteOrigin}/#website` },
+              about: { '@id': `${siteOrigin}/#software` }
+            }
+          ]
+        }
+      : {
+          '@context': 'https://schema.org',
+          '@type': 'TechArticle',
+          headline: pageData.title,
+          description,
+          url: canonical,
+          mainEntityOfPage: canonical,
+          inLanguage,
+          isPartOf: { '@id': `${siteOrigin}/#website` },
+          publisher: {
+            '@type': 'Organization',
+            name: 'TaskHandoff',
+            url: siteOrigin
+          },
+          ...(pageData.lastUpdated
+            ? { dateModified: new Date(pageData.lastUpdated).toISOString() }
+            : {})
+        }
+
+    return [
+      ['link', { rel: 'canonical', href: canonical }],
+      ['link', { rel: 'alternate', hreflang: 'zh-CN', href: absoluteUrl(chineseRoute) }],
+      ['link', { rel: 'alternate', hreflang: 'en-US', href: absoluteUrl(englishRoute) }],
+      ['link', { rel: 'alternate', hreflang: 'x-default', href: absoluteUrl(chineseRoute) }],
+      ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }],
+      ['meta', { property: 'og:type', content: isHome ? 'website' : 'article' }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: canonical }],
+      ['meta', { property: 'og:site_name', content: 'TaskHandoff' }],
+      ['meta', { property: 'og:locale', content: locale }],
+      ['meta', { property: 'og:locale:alternate', content: alternateLocale }],
+      ['meta', { property: 'og:image', content: socialImage }],
+      ['meta', { property: 'og:image:type', content: 'image/png' }],
+      ['meta', { property: 'og:image:width', content: '1960' }],
+      ['meta', { property: 'og:image:height', content: '1423' }],
+      ['meta', { property: 'og:image:alt', content: english ? 'TaskHandoff workbench' : 'TaskHandoff 工作台' }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { name: 'twitter:image', content: socialImage }],
+      ['meta', { name: 'twitter:image:alt', content: english ? 'TaskHandoff workbench' : 'TaskHandoff 工作台' }],
+      ['script', { type: 'application/ld+json' }, JSON.stringify(structuredData).replace(/</g, '\\u003c')]
+    ]
+  },
   vite: {
     server: {
       allowedHosts: ['127-0-0-1.internal']
