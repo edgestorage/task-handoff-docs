@@ -2,8 +2,9 @@
 layout: page
 sidebar: false
 aside: false
-title: TaskHandoff
-description: 集中管理 Codex、OpenCode、AI 工作空间、远程节点和自动化任务。
+title: TaskHandoff · 自托管 AI 开发工作台
+titleTemplate: false
+description: 在一个自托管工作台中运行 Codex 与 OpenCode，管理本机和远程工作空间、AI 会话及自动化。从任务分派到代码审阅，全程掌握。
 ---
 
 <HomePage locale="zh" />

@@ -6,6 +6,7 @@ import 'overlayscrollbars/overlayscrollbars.css'
 import HomePage from './HomePage.vue'
 import ImageViewer from './ImageViewer.vue'
 import './style.css'
+import './home.css'
 
 export default {
   extends: DefaultTheme,

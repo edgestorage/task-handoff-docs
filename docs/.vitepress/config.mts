@@ -228,6 +228,9 @@ export default defineConfig({
       alt: 'TaskHandoff'
     },
     siteTitle: 'TaskHandoff',
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/edgestorage/task-handoff' }
+    ],
     search: {
       provider: 'local',
       options: {

@@ -2,8 +2,9 @@
 layout: page
 sidebar: false
 aside: false
-title: TaskHandoff
-description: Manage Codex, OpenCode, AI workspaces, remote nodes, and automation in one place.
+title: TaskHandoff · Your self-hosted AI development workbench
+titleTemplate: false
+description: Run Codex and OpenCode in one self-hosted workbench. Manage local and remote workspaces, AI sessions, and automation, from task delegation to code review.
 ---
 
 <HomePage locale="en" />
