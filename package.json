@@ -1,0 +1,17 @@
+{
+  "name": "task-handoff-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs && node scripts/generate-legacy-redirects.mjs",
+    "docs:preview": "vitepress preview docs",
+    "docs:check-seo": "npm run docs:build && node scripts/check-seo.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "overlayscrollbars": "^2.16.0"
+  }
+}

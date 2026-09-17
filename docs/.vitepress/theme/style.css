@@ -1,0 +1,265 @@
+/* ==========================================================================
+   TaskHandoff docs — global theme
+   Light-first, gray canvas with a teal accent, matching the product.
+   ========================================================================== */
+
+:root {
+  --vp-c-brand-1: #0e8b83;
+  --vp-c-brand-2: #12a79b;
+  --vp-c-brand-3: #0b6f68;
+  --vp-c-brand-soft: rgba(14, 139, 131, 0.14);
+
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: #0b5f59;
+  --vp-custom-block-tip-bg: rgba(14, 139, 131, 0.08);
+  --vp-custom-block-info-border: transparent;
+  --vp-custom-block-info-text: #245a78;
+  --vp-custom-block-info-bg: rgba(64, 130, 180, 0.09);
+}
+
+.dark {
+  --vp-c-brand-1: #2fd0c0;
+  --vp-c-brand-2: #46ddcd;
+  --vp-c-brand-3: #23b3a4;
+  --vp-c-brand-soft: rgba(47, 208, 192, 0.16);
+
+  --vp-custom-block-tip-text: #8ff0e4;
+  --vp-custom-block-tip-bg: rgba(47, 208, 192, 0.1);
+  --vp-custom-block-info-text: #9dd0ef;
+  --vp-custom-block-info-bg: rgba(80, 150, 200, 0.12);
+}
+
+.VPNavBarTitle .logo {
+  width: 26px;
+  height: 26px;
+}
+
+.VPNavBarMenuLink {
+  font-weight: 550;
+}
+
+/* Sidebar */
+.VPSidebarItem.level-1 > .item > .text {
+  letter-spacing: 0.01em;
+}
+
+.VPSidebarItem.is-active > .item .link > .text {
+  font-weight: 600;
+}
+
+/* Doc content polish */
+.vp-doc h2 {
+  margin-top: 46px;
+  letter-spacing: -0.01em;
+}
+
+.vp-doc h3 {
+  letter-spacing: -0.005em;
+}
+
+.vp-doc a {
+  text-underline-offset: 3px;
+}
+
+.vp-doc :not(pre) > code {
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 0.85em;
+}
+
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border-color: var(--vp-c-divider);
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.vp-doc .custom-block {
+  border-width: 1px;
+  border-radius: 12px;
+}
+
+.vp-doc .custom-block .custom-block-title {
+  font-weight: 650;
+}
+
+/* Overlay scrollbars (sidebar) */
+.os-theme-task-handoff {
+  --os-size: 6px;
+  --os-padding-perpendicular: 1px;
+  --os-padding-axis: 3px;
+  --os-track-border-radius: 999px;
+  --os-track-bg: transparent;
+  --os-track-bg-hover: transparent;
+  --os-track-bg-active: transparent;
+  --os-handle-border-radius: 999px;
+  --os-handle-bg: color-mix(in srgb, var(--vp-c-text-3) 58%, transparent);
+  --os-handle-bg-hover: color-mix(in srgb, var(--vp-c-text-2) 72%, transparent);
+  --os-handle-bg-active: var(--vp-c-text-2);
+}
+
+.VPSidebar[data-overlayscrollbars='host'] {
+  padding-right: 0;
+}
+
+.VPSidebar .os-scrollbar-vertical {
+  right: 3px;
+}
+
+
+/* ==========================================================================
+   Doc screenshots and image viewer
+   ========================================================================== */
+
+.vp-doc .doc-screenshot {
+  margin: 24px 0;
+}
+
+.vp-doc .doc-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 10px;
+  filter: drop-shadow(0 10px 16px rgba(31, 35, 48, 0.14));
+}
+
+.vp-doc img {
+  cursor: zoom-in;
+}
+
+.image-viewer {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 64px 24px 24px;
+  background: rgba(10, 12, 16, 0.88);
+  overscroll-behavior: contain;
+}
+
+.image-viewer__toolbar {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  left: 50%;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(24, 26, 31, 0.94);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  transform: translateX(-50%);
+}
+
+.image-viewer__toolbar button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  color: #fff;
+  background: transparent;
+  font: 500 20px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.image-viewer__toolbar button:last-child {
+  border-right: 0;
+}
+
+.image-viewer__toolbar button:hover,
+.image-viewer__toolbar button:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  outline: none;
+}
+
+.image-viewer__toolbar .image-viewer__scale {
+  width: 64px;
+  font-size: 13px;
+}
+
+.image-viewer__stage {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  touch-action: none;
+  user-select: none;
+}
+
+.image-viewer__stage.is-draggable {
+  cursor: grab;
+}
+
+.image-viewer__stage.is-dragging {
+  cursor: grabbing;
+}
+
+.image-viewer__stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 160ms ease;
+  will-change: transform;
+}
+
+.image-viewer__stage.is-dragging img {
+  transition: none;
+}
+
+.vp-doc .doc-screenshot figcaption {
+  margin-top: 8px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.vp-doc .doc-screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.vp-doc .doc-screenshot-grid .doc-screenshot {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .vp-doc .doc-screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-viewer {
+    padding: 64px 12px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-viewer__stage img {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .os-theme-task-handoff {
+    --os-handle-bg: CanvasText;
+    --os-handle-bg-hover: CanvasText;
+    --os-handle-bg-active: CanvasText;
+  }
+}
