@@ -181,6 +181,104 @@
   font-weight: 600;
 }
 
+.th-skill__card {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 40px 32px;
+  border: 1px solid var(--th-line);
+  border-radius: 28px;
+  background: var(--th-soft);
+  text-align: center;
+}
+
+.th-skill__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  border-bottom: 1px solid var(--th-line);
+}
+
+.th-skill__tabs button {
+  min-height: 52px;
+  padding: 0 4px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  color: var(--th-muted);
+  font-size: 17px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.th-skill__tabs button:hover {
+  color: var(--th-ink);
+}
+
+.th-skill__tabs button.is-active {
+  border-bottom-color: var(--th-ink);
+  color: var(--th-ink);
+}
+
+.th-skill__panel {
+  margin-top: 40px;
+}
+
+.th-skill__hint {
+  margin: 0 0 20px;
+  color: var(--th-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.th-skill__command {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 16px 16px 28px;
+  border: 1px solid var(--th-line);
+  border-radius: 20px;
+  background: var(--th-surface);
+  text-align: left;
+}
+
+.th-skill__command code {
+  font-family: var(--th-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.th-skill__copy {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--th-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--th-ink);
+  font-size: 15px;
+  font-weight: 550;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.th-skill__copy:hover {
+  border-color: var(--th-accent);
+  background: var(--th-mint);
+}
+
+.th-skill__link {
+  margin-top: 24px;
+}
+
 .th-hero {
   padding-top: clamp(64px, 7vw, 100px);
 }
@@ -1200,6 +1298,30 @@
 }
 
 @media (max-width: 680px) {
+  .th-skill__card {
+    padding: 24px 18px 20px;
+    border-radius: 22px;
+  }
+  .th-skill__tabs {
+    gap: 28px;
+  }
+  .th-skill__tabs button {
+    font-size: 15px;
+  }
+  .th-skill__panel {
+    margin-top: 28px;
+  }
+  .th-skill__command {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+  }
+  .th-skill__command code {
+    font-size: 13.5px;
+  }
+  .th-skill__copy {
+    justify-content: center;
+  }
   .th-shell {
     width: calc(100% - 36px);
   }

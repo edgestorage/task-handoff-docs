@@ -47,6 +47,17 @@ const copy = {
       ['/sessions/', '运行 AI 会话', '创建、监管并恢复一个 AI 任务'],
       ['/automation/', '构建自动化', '使用 Story 编排可复用的任务流程']
     ],
+    skillEyebrow: 'Agent 技能',
+    skillTitle: '一行命令，让 Agent 学会使用 TaskHandoff',
+    skillDescription: '把技能装进你的 Agent，它就知道怎么连接控制面板、创建会话、排查故障',
+    skillTabs: ['通过 Agent 安装', '手动安装'],
+    skillAgentLabel: '复制以下命令到 Agent 对话',
+    skillAgentCommand: '帮我安装 TaskHandoff 技能：https://docs.thandoff.com/.well-known/skills/index.json',
+    skillManualLabel: '在终端里安装 CLI 和技能',
+    skillManualCommand: 'npm install -g @task-handoff/thctl\nthctl skill install --yes',
+    skillCopy: '复制',
+    skillCopied: '已复制',
+    skillLink: '查看完整安装说明',
     faqTitle: '你可能还想知道',
     faqDescription: '先了解运行方式，再选择适合你的工作环境',
     faqLink: '查看全部常见问题',
@@ -106,6 +117,17 @@ const copy = {
       ['/sessions/', 'Run AI sessions', 'Create, supervise, and recover an AI task'],
       ['/automation/', 'Build automation', 'Use Stories to orchestrate repeatable workflows']
     ],
+    skillEyebrow: 'Agent skill',
+    skillTitle: 'One line teaches your agent to run TaskHandoff',
+    skillDescription: 'Install the skill and your agent knows how to connect to the control plane, drive sessions, and diagnose failures',
+    skillTabs: ['Install via agent', 'Manual install'],
+    skillAgentLabel: 'Copy this into your agent chat',
+    skillAgentCommand: 'Install the TaskHandoff skill: https://docs.thandoff.com/.well-known/skills/index.json',
+    skillManualLabel: 'Install the CLI and the skill from a terminal',
+    skillManualCommand: 'npm install -g @task-handoff/thctl\nthctl skill install --yes',
+    skillCopy: 'Copy',
+    skillCopied: 'Copied',
+    skillLink: 'Full installation guide',
     faqTitle: 'A few things worth knowing',
     faqDescription: 'Understand how it runs. Choose the environment that fits',
     faqLink: 'Read all frequently asked questions',
@@ -129,12 +151,43 @@ const copy = {
 const content = computed(() => copy[props.locale ?? 'zh'])
 const prefix = computed(() => props.pathPrefix ?? (props.locale === 'zh' ? '/zh' : ''))
 const activePreview = ref(0)
+const activeSkillTab = ref(0)
+const skillCopied = ref(false)
+let skillCopyTimer: ReturnType<typeof setTimeout> | undefined
 const preview = computed(() => content.value.previews[activePreview.value])
 const sceneVariants = ['session', 'review', 'workspace', 'story', 'nodes'] as const
 const featureVariants = ['session', 'workspace', 'nodes'] as const
 const featurePaths = ['/sessions/', '/instances/', '/integrations/remote-access']
 const home = ref<HTMLElement | null>(null)
 let disposeMotion: (() => void) | undefined
+
+const activeSkillCommand = computed(() => (
+  activeSkillTab.value === 0 ? content.value.skillAgentCommand : content.value.skillManualCommand
+))
+
+async function copySkillCommand() {
+  const value = activeSkillCommand.value
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value)
+    } else {
+      const field = document.createElement('textarea')
+      field.value = value
+      field.setAttribute('readonly', '')
+      field.style.position = 'fixed'
+      field.style.opacity = '0'
+      document.body.appendChild(field)
+      field.select()
+      document.execCommand('copy')
+      field.remove()
+    }
+    skillCopied.value = true
+    if (skillCopyTimer) clearTimeout(skillCopyTimer)
+    skillCopyTimer = setTimeout(() => { skillCopied.value = false }, 1800)
+  } catch {
+    // 复制失败时保持原样，用户可以手动选中命令。
+  }
+}
 
 onMounted(() => {
   const root = home.value
@@ -175,7 +228,10 @@ onMounted(() => {
   }
 })
 
-onUnmounted(() => disposeMotion?.())
+onUnmounted(() => {
+  disposeMotion?.()
+  if (skillCopyTimer) clearTimeout(skillCopyTimer)
+})
 </script>
 
 <template>
@@ -191,6 +247,47 @@ onUnmounted(() => disposeMotion?.())
         </div>
         <p class="th-hero__note">{{ content.heroNote }}</p>
         <div class="th-tools"><p>{{ content.toolsLabel }}</p><div><span>Codex</span><span>OpenCode</span><span>Docker</span><span>Git</span></div></div>
+      </div>
+    </section>
+
+    <section class="th-section th-skill" aria-labelledby="skill-title">
+      <div class="th-shell">
+        <div class="th-section-heading" data-reveal>
+          <p class="th-eyebrow">{{ content.skillEyebrow }}</p>
+          <h2 id="skill-title">{{ content.skillTitle }}</h2>
+          <p>{{ content.skillDescription }}</p>
+        </div>
+        <div class="th-skill__card" data-reveal>
+          <div class="th-skill__tabs" role="tablist">
+            <button
+              v-for="(tab, index) in content.skillTabs"
+              :key="tab"
+              type="button"
+              role="tab"
+              :id="`skill-tab-${index}`"
+              :aria-selected="activeSkillTab === index"
+              :aria-controls="`skill-panel-${index}`"
+              :class="{ 'is-active': activeSkillTab === index }"
+              @click="activeSkillTab = index"
+            >{{ tab }}</button>
+          </div>
+          <div
+            class="th-skill__panel"
+            role="tabpanel"
+            :id="`skill-panel-${activeSkillTab}`"
+            :aria-labelledby="`skill-tab-${activeSkillTab}`"
+          >
+            <p class="th-skill__hint">{{ activeSkillTab === 0 ? content.skillAgentLabel : content.skillManualLabel }}</p>
+            <div class="th-skill__command">
+              <code>{{ activeSkillCommand }}</code>
+              <button type="button" class="th-skill__copy" @click="copySkillCommand">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><rect x="9" y="9" width="11" height="11" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M15 5.6A2.6 2.6 0 0 0 12.4 4H6.6A2.6 2.6 0 0 0 4 6.6v5.8A2.6 2.6 0 0 0 5.6 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                {{ skillCopied ? content.skillCopied : content.skillCopy }}
+              </button>
+            </div>
+          </div>
+          <a class="th-text-link th-skill__link" :href="withBase(`${prefix}/guide/thctl-skill`)">{{ content.skillLink }} <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 

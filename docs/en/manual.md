@@ -28,6 +28,7 @@ This guide is for TaskHandoff administrators and regular users. Steps that requi
 ### Get Started
 
 - [About TaskHandoff](/en/guide/): purpose, core concepts, and system layout.
+- [Install the thctl Skill](/en/guide/thctl-skill): install the usage guide into Codex, OpenCode, and similar agents so they can drive the Control Plane directly.
 - [Install and Sign In](/en/guide/install): server deployment, administrator setup, desktop behavior, and languages.
 - [First-time Setup](/en/guide/first-setup): nodes, runtime environments, model providers, and projects.
 - [Interface and Workbench](/en/guide/workbench): navigation, boards, sidebar, and dedicated windows.
@@ -48,6 +49,15 @@ This guide is for TaskHandoff administrators and regular users. Steps that requi
 - [Desktop](/en/clients/desktop), [Mobile](/en/clients/mobile), [chat bridges](/en/integrations/chat), and [remote access](/en/integrations/remote-access).
 - [Settings and Security](/en/settings/): global settings entry points and security principles.
 - [Troubleshooting](/en/troubleshooting): common node, instance, session, and repository problems.
+
+### Operations and Reference
+
+- [Updates and Versions](/en/admin/updates): release sets for Control Plane, Node Agent, and instances.
+- [Data, Backup, and Recovery](/en/reference/data-backup): backup strategy for configuration, instance data, and workspaces.
+- [Status and Glossary](/en/reference/status-glossary): UI states, error messages, and terminology.
+- [Client Capability Matrix](/en/reference/capability-matrix): capability differences across web, desktop, mobile, and chat.
+- [Private Repository Tutorial](/en/tutorials/private-repository) and [Worktree Tutorial](/en/tutorials/worktree-session): end-to-end workflow examples.
+- [FAQ](/en/faq): short answers to common questions.
 
 ## Read by Role
 

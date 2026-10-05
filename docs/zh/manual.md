@@ -28,6 +28,7 @@ TaskHandoff 当前主要支持 **Codex** 和 **OpenCode**。两者均可通过�
 ### 开始使用
 
 - [认识 TaskHandoff](/zh/guide/)：产品用途、核心概念和系统组成。
+- [thctl Skill 安装](/zh/guide/thctl-skill)：把使用说明装进 Codex、OpenCode 等 Agent，让它直接操作控制面板。
 - [安装与登录](/zh/guide/install)：服务器部署、管理员创建、桌面端行为和语言切换。
 - [首次配置](/zh/guide/first-setup)：节点接入、运行环境、模型 Provider 和项目配置。
 - [界面与工作台](/zh/guide/workbench)：主导航、看板、实例侧栏和独立窗口。
@@ -48,6 +49,15 @@ TaskHandoff 当前主要支持 **Codex** 和 **OpenCode**。两者均可通过�
 - [桌面端](/zh/clients/desktop)、[移动端](/zh/clients/mobile)、[聊天桥接](/zh/integrations/chat)和[远程访问](/zh/integrations/remote-access)。
 - [设置与安全](/zh/settings/)：全局设置入口与安全原则。
 - [故障排查](/zh/troubleshooting)：节点、实例、AI 会话和仓库常见问题。
+
+### 运维与参考
+
+- [更新与版本](/zh/admin/updates)：Control Plane、Node Agent 和实例的版本集与升级。
+- [数据、备份与恢复](/zh/reference/data-backup)：配置、实例数据和工作区的备份策略。
+- [状态与术语](/zh/reference/status-glossary)：界面状态、错误提示和常用术语。
+- [跨端能力矩阵](/zh/reference/capability-matrix)：Web、桌面端、移动端和聊天端的能力差异。
+- [私有仓库教程](/zh/tutorials/private-repository)、[Worktree 教程](/zh/tutorials/worktree-session)：常见工作流的完整示例。
+- [常见问题](/zh/faq)：高频问题的简短回答。
 
 ## 按角色阅读
 

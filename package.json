@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs && node scripts/generate-legacy-redirects.mjs",
+    "docs:build": "vitepress build docs && node scripts/build-skill-index.mjs && node scripts/check-skill-docs.mjs && node scripts/generate-legacy-redirects.mjs",
     "docs:preview": "vitepress preview docs",
-    "docs:check-seo": "npm run docs:build && node scripts/check-seo.mjs"
+    "docs:check-seo": "npm run docs:build && node scripts/check-seo.mjs",
+    "skills:index": "node scripts/build-skill-index.mjs",
+    "skills:check": "node scripts/check-skill-docs.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

@@ -10,6 +10,7 @@ TaskHandoff is a self-hosted control plane for AI workspaces. It creates isolate
 - Runs Codex and OpenCode AI sessions and streams their progress;
 - Reviews files, Git changes, branches, and worktrees;
 - Organizes repeatable work with Stories, preset actions, and triggers;
+- Drives the control plane from the `thctl` command line or an agent skill;
 - Provides access from the web, desktop, mobile, and chat platforms.
 
 ## Core Concepts
@@ -29,6 +30,10 @@ The runtime that contains a workspace and AI tools. Docker Runtime supports mult
 ### AI Session
 
 One AI task running in an instance and a fixed working directory. TaskHandoff primarily supports Codex and OpenCode. Sessions accept messages and attachments and report tools, approvals, and results; advanced capabilities vary by agent.
+
+### Command Line and Agent Skill
+
+Besides the interface, the `thctl` command-line client operates the same control plane. Install the TaskHandoff skill into Codex, OpenCode, or a similar agent and it can call `thctl` on its own — see [Install the thctl Skill](./thctl-skill).
 
 ### Story
 

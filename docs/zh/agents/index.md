@@ -59,3 +59,7 @@ Claude 相关兼容入口可能仍会出现在部分镜像或已有配置中，�
 - 需要统一监管两种 Agent：可以在同一实例中分别创建会话。
 
 Agent 使用同一个工作区时会看到彼此写入磁盘的修改。并行工作前应分配不同 worktree，避免同时编辑相同文件。
+
+## 让 Agent 操作 TaskHandoff
+
+Codex 和 OpenCode 都可以安装 `thctl` Skill，让它用命令行读取控制面板状态、创建实例和 AI 会话、排查故障。安装方式见 [thctl Skill 安装](/zh/guide/thctl-skill)。Skill 只是使用说明，不会改动已有的 Agent 配置或工作区设置。

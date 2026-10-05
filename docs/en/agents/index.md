@@ -44,3 +44,7 @@ Create an OpenCode model using `openai-chat-completions`, test it, assign it to 
 ## Parallel Work
 
 Codex and OpenCode can run in the same instance and see the same disk changes. Give parallel tasks separate Git worktrees to avoid concurrent edits to the same files.
+
+## Let an Agent Operate TaskHandoff
+
+Codex and OpenCode can install the `thctl` skill and drive the Control Plane from the command line: reading state, creating instances and AI sessions, and diagnosing failures. See [Install the thctl Skill](/en/guide/thctl-skill). The skill is documentation only and does not change agent configuration or workspace settings.

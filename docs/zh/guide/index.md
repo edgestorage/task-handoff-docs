@@ -12,6 +12,7 @@ TaskHandoff 是一个自托管的 AI 工作空间控制面板。你可以用它�
 - 创建 Codex 或 OpenCode AI 会话并实时查看执行进度；
 - 检查文件、Git 变更、分支和 worktree；
 - 通过 Story、预设动作和触发器组织重复工作；
+- 用 `thctl` 命令行或 Agent Skill 直接操作控制面板；
 - 从 Web、桌面端、移动端或聊天平台访问任务。
 
 ## 基本概念
@@ -31,6 +32,10 @@ TaskHandoff 是一个自托管的 AI 工作空间控制面板。你可以用它�
 ### AI 会话
 
 在实例中运行的一次 AI 工作任务。TaskHandoff 主要支持 Codex 与 OpenCode。会话绑定固定工作目录，可以发送消息和附件，并查看工具调用、审批和最终结果；部分高级能力因 Agent 而异。
+
+### 命令行与 Agent Skill
+
+除了在界面里操作，也可以用 `thctl` 命令行客户端操作同一个控制面板。给 Codex、OpenCode 等 Agent 安装 TaskHandoff Skill 之后，Agent 也能自己调用 `thctl`，安装方式见 [thctl Skill 安装](./thctl-skill)。
 
 ### Story
 

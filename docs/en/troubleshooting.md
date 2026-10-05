@@ -45,6 +45,15 @@ Open **Instance settings → Git credentials**, verify that exactly one retained
 
 Verify stable browser access to the control plane and ensure the reverse proxy supports WebSocket connections. Reloading fetches an authoritative snapshot and does not intentionally stop background work.
 
+## An Agent Cannot Call thctl
+
+- Confirm the CLI is installed: run `thctl --version`, and install it with `npm install -g @task-handoff/thctl` if it is missing.
+- Confirm the skill is installed and current: run `thctl skill status`, then `thctl skill install --yes` or `thctl skill update --yes` as needed.
+- Confirm identity and target: `thctl whoami --json` should report the current Control Plane; for remote servers check `thctl profile list` and the sign-in state first.
+- When a specific command fails, verify its flags with `thctl <command> --help` or `thctl schema --format json`.
+
+See [Install the thctl Skill](/en/guide/thctl-skill) for the concepts and setup.
+
 ## Diagnostic Information
 
 When reporting a problem, include the time and timezone, control plane/node/instance/session identifiers, reproduction steps, visible errors, screenshots, and relevant service logs. Remove API keys, Git tokens, passwords, join tokens, and SSH private keys first.

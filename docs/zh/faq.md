@@ -43,3 +43,7 @@ Secret 不会直接复制进实例，但同一实例用户下的 Agent、终端�
 ## 页面一直显示重连怎么办？
 
 检查浏览器到 Control Plane 的网络，并确认反向代理支持 `/api/events` WebSocket。重连不代表后台 Agent 已停止。
+
+## 可以让 Agent 自己操作 TaskHandoff 吗？
+
+可以。装好 CLI 和 `thctl` Skill 之后，Codex、OpenCode 等 Agent 就能用命令行读取控制面板状态、创建实例和 AI 会话、排查故障。安装方式见 [thctl Skill 安装](/zh/guide/thctl-skill)。

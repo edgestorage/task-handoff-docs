@@ -91,6 +91,7 @@ const zhSidebarRoutes = [
       { text: '手册目录', link: '/manual' },
       { text: '认识 TaskHandoff', link: '/guide/' },
       { text: '安装与登录', link: '/guide/install' },
+      { text: 'thctl Skill 安装', link: '/guide/thctl-skill' },
       { text: '界面与工作台', link: '/guide/workbench' },
       { text: '首次配置', link: '/guide/first-setup' }
     ]
@@ -170,6 +171,7 @@ const enSidebarRoutes = [
       { text: 'Guide Index', link: '/en/manual' },
       { text: 'About TaskHandoff', link: '/en/guide/' },
       { text: 'Install and Sign In', link: '/en/guide/install' },
+      { text: 'Install the thctl Skill', link: '/en/guide/thctl-skill' },
       { text: 'Interface and Workbench', link: '/en/guide/workbench' },
       { text: 'First-time Setup', link: '/en/guide/first-setup' }
     ]

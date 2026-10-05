@@ -4,3 +4,5 @@ docs/.vitepress/dist/
 .DS_Store
 .idea/
 *.local
+# Generated into the site output by `npm run docs:build`; never committed.
+docs/public/.well-known/skills/index.json

@@ -59,6 +59,15 @@ task-handoff check
 
 确认浏览器可以稳定访问控制面板，并检查反向代理是否支持 WebSocket。刷新页面会重新读取权威快照，不会主动停止实例中的任务。
 
+## Agent 无法调用 thctl
+
+- 确认 CLI 已安装：在终端运行 `thctl --version`，缺失时执行 `npm install -g @task-handoff/thctl`；
+- 确认 Skill 已安装且是最新：运行 `thctl skill status`，必要时执行 `thctl skill install --yes` 或 `thctl skill update --yes`；
+- 确认身份和地址：`thctl whoami --json` 应返回当前控制面板；远端环境先检查 `thctl profile list` 和登录状态；
+- 某条命令报错时，用 `thctl <命令> --help` 或 `thctl schema --format json` 核对参数。
+
+概念和安装步骤见 [thctl Skill 安装](/zh/guide/thctl-skill)。
+
 ## 收集诊断信息
 
 向管理员或维护人员反馈时，请提供：

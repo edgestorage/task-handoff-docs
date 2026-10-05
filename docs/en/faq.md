@@ -28,6 +28,10 @@ Instance model assignments generally apply on the next start or restart and do n
 
 The current session needs an accessible directory inside a Git worktree, and Git must be installed in the instance.
 
+## Is it safe to keep Git credentials?
+
+Secrets are not copied into the instance, but agents, terminals, and apps running as the same instance user can use the authorized credentials through the proxy. Keep only least-privilege credentials in trusted instances.
+
 ## Can a deleted instance be recovered?
 
 Not after **Delete instance data**. Retained volumes require manual administrator recovery and are not automatically attached.
@@ -35,3 +39,11 @@ Not after **Delete instance data**. Retained volumes require manual administrato
 ## Why can Mobile not create instances?
 
 Mobile focuses on active sessions and runtime controls. Infrastructure and secret management remain Web/Desktop responsibilities.
+
+## Why does the page keep reconnecting?
+
+Check the network between the browser and the Control Plane and confirm the reverse proxy supports the `/api/events` WebSocket. Reconnecting does not mean a background agent has stopped.
+
+## Can an agent operate TaskHandoff directly?
+
+Yes. Once the CLI and the `thctl` skill are installed, Codex, OpenCode, and similar agents can read Control Plane state, create instances and sessions, and diagnose failures from the command line. See [Install the thctl Skill](/en/guide/thctl-skill).
