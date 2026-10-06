@@ -16,9 +16,11 @@ TaskHandoff does not create a stash automatically. Verify the selected paths and
 
 ## Worktrees and Branches
 
-Managed worktrees are created by TaskHandoff and can host new AI sessions. External worktrees remain user-owned and can be used only when they are within authorized workspace roots.
+Managed worktrees are created by TaskHandoff and can host new AI sessions. You can also create an isolated worktree from the Worktrees panel using an existing or new branch, while the current session stays in its original working directory. External worktrees remain user-owned and can be used only when they are within authorized workspace roots.
 
-A managed worktree can be deleted only when it is not the main worktree, is clean and unlocked, and has no active AI or app sessions. The Git branch remains after its directory is removed.
+**Move to main worktree** merges a worktree back into the main worktree: the main worktree adopts its branch, uncommitted changes are carried over, and the worktree directory is then deleted (ignored files are not carried over). The move is blocked when the main worktree is dirty or has a running session, the worktree is locked or unreachable, the directory is outside the authorized root, or HEAD is detached.
+
+A managed worktree can be removed only when it is not the main worktree, is clean and unlocked, and has no active AI or app sessions. The Git branch remains after its directory is removed, and the current AI session's working directory is not affected.
 
 Branch actions never auto-stash or force an overwrite. Unsafe checkout or deletion is blocked.
 

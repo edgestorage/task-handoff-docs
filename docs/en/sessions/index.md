@@ -69,7 +69,7 @@ The selected mode is stored in the current browser and reused for other sessions
 
 ## Manage Sessions
 
-Switch sessions from the instance sidebar, AI board, or Story. Closing a session stops its active work. **Close all sessions** affects every session on the current instance.
+Session lists mark unread AI sessions so you can quickly find work that needs attention. Switch sessions from the instance sidebar, AI board, or Story. Closing a session stops its active work. **Close all sessions** affects every session on the current instance.
 
 Instance AI settings define session defaults. Codex adds managed response detail, personality, and multi-agent settings; OpenCode uses its own model variants and permissions. Changes do not rewrite existing sessions.
 

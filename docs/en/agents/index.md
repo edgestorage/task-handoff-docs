@@ -39,11 +39,22 @@ Create a model under **Settings → Models**, select Codex and `openai-responses
 
 ## Configure OpenCode
 
-Create an OpenCode model using `openai-chat-completions`, test it, assign it to the instance, and restart the instance for the assignment to take effect. OpenCode model and reasoning choices cannot be changed during an active turn.
+Create an OpenCode model using `openai-chat-completions`, test it, assign it to the instance, and restart the instance for the assignment to take effect. OpenCode model and reasoning choices cannot be changed during an active turn; wait for the turn to finish or stop it before changing them. On older nodes or instances a session may not allow switching at all, so create a new session instead.
 
 ## Parallel Work
 
 Codex and OpenCode can run in the same instance and see the same disk changes. Give parallel tasks separate Git worktrees to avoid concurrent edits to the same files.
+
+## Agent Orchestration (Optional)
+
+When a deployment enables agent orchestration, an **Agent** entry appears in the top navigation:
+
+- Agents are listed per node; you can create an agent and switch between **Detail** and **Orchestration**;
+- The orchestration canvas shows members, entry nodes, and call edges: drag cards to move them, use the dot below a card to add a member or draw a connection, and click a relation or its midpoint × to remove it;
+- The canvas edits one orchestration at a time; unsaved changes are indicated and can be saved or reset;
+- Agent runs appear as tasks in Story and Approvals.
+
+This entry is controlled by a deployment switch and is hidden by default; if you do not see it, the current deployment has not enabled it.
 
 ## Let an Agent Operate TaskHandoff
 

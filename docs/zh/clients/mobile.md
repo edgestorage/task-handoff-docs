@@ -15,6 +15,7 @@ TaskHandoff Mobile 可在 iOS 和 Android 上连接用户管理的 Control Plane
 - AI Session Inbox、创建、历史与恢复；
 - Codex 和 OpenCode 会话、消息、审批、停止和队列操作；
 - Markdown、代码、子 Agent、图片与文件附件；
+- 新建会话时选择已有分支或创建独立 worktree，并查看、同步实例的工作树；
 - 节点与实例目录，实例启动、停止、重启和镜像重试；
 - App Session、终端与浏览器；
 - Story、预设动作和自动化；

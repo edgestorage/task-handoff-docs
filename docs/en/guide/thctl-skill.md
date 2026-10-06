@@ -13,7 +13,9 @@ thctl --help
 
 ## Connect to the Control Plane
 
-For the local desktop Control Plane, `thctl whoami --json` discovers and connects to it automatically. For a remote server, run `thctl profile add https://your-control-plane` and then `thctl login` (or `thctl login --device` without a browser).
+For the local desktop Control Plane, `thctl whoami --json` discovers and connects to it automatically.
+
+For a remote server, run `thctl profile add https://your-control-plane` and then `thctl login`: the browser opens the Control Plane's authorize page, where you check the client information and device code and approve. Without a browser, use `thctl login --device`, read the device code in the terminal, then enter it on the Control Plane's authorize page and approve.
 
 ## Install the Skill
 

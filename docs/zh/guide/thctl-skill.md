@@ -13,7 +13,9 @@ thctl --help
 
 ## 连接控制面板
 
-连接本机桌面端时，运行 `thctl whoami --json` 即可自动发现并连接本机的 Control Plane。连接远端时先运行 `thctl profile add https://你的控制面板地址`，再运行 `thctl login`；没有浏览器的环境用 `thctl login --device`。
+连接本机桌面端时，运行 `thctl whoami --json` 即可自动发现并连接本机的 Control Plane。
+
+连接远端时先运行 `thctl profile add https://你的控制面板地址`，再运行 `thctl login`：浏览器会打开控制面板的授权页，核对客户端信息和设备码后批准。没有浏览器的环境用 `thctl login --device`，在终端读取设备码，再到控制面板的授权页输入并批准。
 
 ## 安装 Skill
 

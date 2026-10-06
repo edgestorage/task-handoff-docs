@@ -11,6 +11,7 @@
 | Install/uninstall apps | Yes | Yes | No |
 | Repository and advanced Git UI | Full | Full | Limited; use Web/Desktop for advanced work |
 | Stories and automation | Yes | Yes | Primary workflows |
+| Operation approvals (delete instance, node updates, etc.) | Yes | Yes | Handled in Web/Desktop |
 | Triggers | Yes | Yes | Create, edit, deploy, inspect |
 | Users, roles, sign-in providers | Yes | Yes | No |
 

@@ -8,6 +8,15 @@ General shows identity, state, node, runtime, image, workspace, connection, prot
 
 AI settings include the default permission mode, attachment retention, and file upload limit. Reducing retention may immediately and irreversibly remove expired attachment content.
 
+## Browser Profiles
+
+The in-instance browser can use a Profile to keep site sign-ins, extensions, and browsing data across sessions:
+
+- Only one session can run on a Profile at a time;
+- You can create, rename, set as default, and delete Profiles, and see each one's disk usage;
+- Deleting a Profile permanently removes its sign-ins, extensions, and browsing history;
+- On older nodes or managed instances, Profiles cannot be managed and new sessions fall back to a temporary profile that keeps no data after it closes.
+
 ## Codex Settings
 
 Codex has managed options for response detail, personality, reasoning, Codex Home, multi-agent enablement, maximum concurrency, and sub-agent model defaults. OpenCode uses its own model, permission, and session configuration; do not assume identical fields.

@@ -10,7 +10,7 @@ Cloud-linked profiles can be discovered through a Thandoff account. Changing clo
 
 ## Supported Work
 
-Mobile supports the AI Session Inbox, Codex and OpenCode sessions, history/resume, messages, approvals, interrupts, queues, attachments, sub-agents, node/instance directories, instance lifecycle actions, app sessions, terminal, browser, Stories, automation, and triggers.
+Mobile supports the AI Session Inbox, Codex and OpenCode sessions, history/resume, messages, approvals, interrupts, queues, attachments, sub-agents, choosing an existing branch or creating an isolated worktree when starting a session, viewing and syncing instance worktrees, node/instance directories, instance lifecycle actions, app sessions, terminal, browser, Stories, automation, and triggers.
 
 It intentionally omits instance creation/deletion, full node lifecycle, app installation, provider/model setup, images, environment templates, and full settings. Use Web or Desktop for those administrator tasks.
 

@@ -40,4 +40,12 @@ Local project paths require access for the service user. Do not expose sensitive
 
 `127.0.0.1` is host-only; `0.0.0.0` expands access to all IPv4 interfaces and requires firewall and TLS controls. A port change is rejected while running instances still use the old callback port.
 
+## Model Relay
+
+**Model relay** in node details is off by default. When enabled, model requests from managed instances are proxied through the Node Agent so the data path can flip without restarting instances; when disabled, instances fall back to the direct projection.
+
+- The switch affects only new requests and can be turned off at any time;
+- A model connection's **Model mapping** forwards the model name requested by clients to an upstream model name; the mapping only participates in request resolution while model relay is enabled;
+- The switch appears only after the Node Agent is updated.
+
 Disabling or deleting a control-plane connection does not automatically stop the remote Node Agent or its instances. Resolve instance, template, project, and model references before deleting a node.

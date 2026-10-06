@@ -33,6 +33,16 @@ Create sessions inside the Story or attach unassigned sessions from its owner no
 
 Archive completed Stories for later reading. Deleting a Story also deletes its file directory and cannot be undone. Move important deliverables into the project repository or another backup first.
 
+## Decisions
+
+An AI in a Story can raise a decision that needs human confirmation. Decisions appear in the Story workspace and in the top-bar **Approvals** view:
+
+- Pending: waiting for a choice; pick one of the offered options or type a free-form reply;
+- Decided: submitting it appends a new turn to the related AI session;
+- Cancelled / expired: no longer actionable; you can raise it again if needed.
+
+Decisions are available only when the node supports them. You cannot submit on an older node or if the related session has ended; open the AI session from the decision card to review the context.
+
 ## Continue Reading
 
 - [Story Documents](./documents)
