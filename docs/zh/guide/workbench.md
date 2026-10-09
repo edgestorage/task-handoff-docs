@@ -54,13 +54,18 @@ AI 看板只聚焦 AI 会话。运行中、等待审批和失败的会话更容�
 
 桌面端或允许弹窗的浏览器可以把实例放到独立窗口。已经打开的实例窗口会被复用；浏览器阻止弹窗时，需要为当前站点放行。
 
-## 亮色模式
+## 亮色与暗色模式
 
 TaskHandoff 同时提供亮色和暗色界面，可以在“设置 → 基础 → 主题”中切换。主题只改变当前浏览器中的显示效果，不影响实例、AI 会话或服务器数据。
 
 <figure class="doc-screenshot">
   <img src="/images/workbench-light-mode.png" alt="TaskHandoff 亮色模式界面">
   <figcaption>亮色模式下的 Story 工作区。</figcaption>
+</figure>
+
+<figure class="doc-screenshot">
+  <img src="/images/story-workspace-dark-en.png" alt="暗色模式下的 TaskHandoff Story 工作区，包含 Story 会话和容器中运行的 Chrome 窗口">
+  <figcaption>暗色模式下的 Story 工作区，包含 Story 会话和容器中运行的 Chrome。</figcaption>
 </figure>
 
 ## 响应式界面

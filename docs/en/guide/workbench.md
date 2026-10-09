@@ -45,13 +45,18 @@ An approval applies to that single request only; approving one does not authoriz
 
 Instance details contain AI timelines, app sessions and terminals, browser previews, the current session repository environment, and runtime status. Desktop or popup-enabled browsers can open one dedicated window per instance.
 
-## Light Mode
+## Light and Dark Modes
 
 TaskHandoff provides both light and dark interfaces. Switch themes under **Settings → Basic → Theme**. The choice changes presentation in the current browser only; it does not affect instances, AI sessions, or server data.
 
 <figure class="doc-screenshot">
   <img src="/images/story-workspace-light-en.png" alt="TaskHandoff Story workspace in light mode">
   <figcaption>The Story workspace in light mode.</figcaption>
+</figure>
+
+<figure class="doc-screenshot">
+  <img src="/images/story-workspace-dark-en.png" alt="TaskHandoff Story workspace in dark mode with a Story session and a Chrome window running in the container">
+  <figcaption>The Story workspace in dark mode, with a Story session and a Chrome window running in the container.</figcaption>
 </figure>
 
 ## Responsive Interface
