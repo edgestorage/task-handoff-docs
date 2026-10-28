@@ -36,7 +36,7 @@ This entry point holds the shared rules. Before working in a feature area, read 
 | Instances | `thctl instance list --json`, `thctl instance show <instanceId> --json` | `instance start/stop/restart/rename/create/delete` |
 | AI sessions | `thctl ai-session list --instance <instanceId> --json`, `ai-session show <instanceId> <sessionId> --json` | `ai-session create/send/interrupt/approval/resume/fork/close` |
 | Apps | `thctl app-session list --json` | `app-session start/stop/restart` |
-| Integrations | `thctl chat status --json`, `thctl cloud show --json` | `chat bridges ...`, `cloud remote-access/disconnect` |
+| Integrations | `thctl chat status --json`, `thctl cloud show --json`, `thctl cloud account show --json`, `thctl cloud account-nodes list --json` | `chat bridges ...`; `cloud account sign-in/sign-out`, `cloud bind`, `cloud scopes set`, `cloud disconnect`, `cloud account-nodes claim/release` |
 | Story | `thctl story list --json` | `story create/update/archive/restore/remove`, `story document ...` |
 | Automation | `thctl story automation list --json`, `thctl trigger list --json` | `story automation ...`, `trigger ...` |
 | Models and assets | `thctl model list --json`, `thctl project list --json`, `thctl image list --json` | `model ...`, `project ...`, `image ...`, `git-credential ...` |

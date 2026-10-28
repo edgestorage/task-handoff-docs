@@ -19,8 +19,9 @@
 | 节点已由另一块面板管理，要再接入本面板 | 出站连接 | 在目标面板建邀请，在已管理该节点的面板执行 `node connections create`。 |
 | Control Plane 只能访问目标 Node Agent | 直连 HTTPS | 目标端需有 TLS 和一次性配对令牌，再用 `node create` 登记；不要用裸 HTTP 公网地址。 |
 | 目标已归另一台可信 Control Plane 管理，双方无法直接接入 | 可信 Control Plane 代理 | 两台面板建立委托信任；代理面板能代表本面板操作目标节点，不是端到端加密。 |
+| 节点已绑定 Thandoff 账号，Control Plane 也已完成云绑定 | 云平台节点中转 | 开启 `nodeRelay`，读取账号节点目录并领取目标；客户端与节点都无需暴露公网入站端口。详见 [integrations.md](./integrations.md)。 |
 
-先问清：目标机是否已装 Node Agent、谁能主动访问谁、当前面板是否公网可达、目标是否已被其他面板管理、是否有目标主机执行权限。不要看到“添加节点”就直接选 `node create`。账户型节点中继当前协议未支持，不能把账户远程访问当作节点接入通道。
+先问清：目标机是否已装 Node Agent、谁能主动访问谁、当前面板是否公网可达、目标是否已被其他面板管理、是否有目标主机执行权限。不要看到“添加节点”就直接选 `node create`。账号节点中继要求 Control Plane 已绑定 Thandoff 账号、启用 `nodeRelay`，并从 `cloud account-nodes list --json` 取得准确的 `nodeHandle`；设备访问 scope 本身不建立节点连接。
 
 ## 四条操作路径
 
