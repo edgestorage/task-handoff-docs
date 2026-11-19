@@ -1,8 +1,8 @@
 # FAQ
 
-## Which AI agents are primarily supported?
+## Which AI agents are supported?
 
-**Codex** and **OpenCode**. Both provide managed AI sessions. Codex has deeper managed settings, context mentions, and multi-agent integration; OpenCode uses its own session and model ecosystem. Claude remains a compatibility path, not the main guide flow.
+**Codex** and **OpenCode** are the managed AI kernels. Both provide managed AI sessions. Codex has deeper managed settings, context mentions, and multi-agent integration; OpenCode uses its own session and model ecosystem. Claude is available only as a compatibility path in some existing images or configurations and is not a first-class supported kernel.
 
 ## Does closing the page stop AI work?
 
@@ -19,6 +19,24 @@ An ordinary Control Plane stop does not stop Docker instances managed by Node Ag
 ## Docker or Local Runtime?
 
 Use Docker for isolation and multiple instances. Use Local for direct host tools and folders. One host user can run only one Local Runtime instance.
+
+## Why is Remote Desktop unavailable, or visible but not controllable?
+
+First confirm that the page uses HTTPS, `localhost`, or an administrator-approved private-network address, and that the instance has the Remote Desktop component installed and enabled. macOS hosts also require Screen Recording and Accessibility permissions.
+
+Session cards and floating previews are read-only by default; open the full Remote Desktop surface to enable input. If another viewer is controlling, request control instead of trying to type or click simultaneously. If a window closes or the capture source becomes invalid, select the source again. See [Remote Desktop](/en/workspace/remote-desktop).
+
+## Does Remote Desktop require TURN?
+
+Not always. Remote Desktop first attempts a direct WebRTC path, uses TURN when direct connectivity fails, and can fall back to the Control Plane WebSocket compatibility channel when WebRTC cannot connect. Configure or investigate TURN first when direct connections frequently fail, sessions repeatedly fall back to WebSocket, or the network explicitly restricts UDP.
+
+## Does the Remote Desktop component update with the instance?
+
+No. The component and other managed apps have an independent release cadence. Install, update, or repair it under **Instance Settings → Apps**, then confirm enablement under **Instance Settings → Remote Desktop**. Remote Desktop may be temporarily unavailable while the component updates.
+
+## Can Remote Desktop synchronize the clipboard?
+
+Yes, but text only. Do not leave passwords, tokens, or long-lived credentials in a shared clipboard.
 
 ## Why did a model change not apply?
 

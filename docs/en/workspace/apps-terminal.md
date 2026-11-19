@@ -20,9 +20,26 @@ AI and app sessions each retain their actual working directory. Repository views
 
 Open **Instance settings → Apps** to inspect the trusted built-in catalog. Platform capability determines whether an app can be installed, uninstalled, launched, or is unsupported. Management jobs report their phase, progress, and terminal output.
 
-Initial dynamic installation primarily supports GUI Terminal and Chromium on compatible Linux instances. Codex, OpenCode, and other environment-provided tools are normally detected and launched from inventory.
+The dynamic catalog includes GUI Terminal and Chromium on compatible Linux instances, plus the **Remote Desktop** component on supported platforms. Codex, OpenCode, and other environment-provided tools are normally detected and launched from inventory.
 
 Uninstall removes only files owned by the managed installation. User configuration, home data, workspaces, and AI sessions are preserved. An app with active sessions cannot be uninstalled.
+
+### App Tasks and Software Sources
+
+Installation, update, and uninstall run asynchronously inside the instance. Closing settings or switching pages does not cancel the task; inspect its phase, progress, and installer output under **App tasks**.
+
+**Install settings** selects the install environment and software sources for later app tasks:
+
+- keep the instance environment, use official sources, a China mirror, or custom HTTPS endpoints;
+- override the npm registry, Node.js distribution URL, and apt main/security mirrors;
+- inspect or prepare an instance-private Node.js/npm toolchain;
+- test endpoint connectivity before saving.
+
+Changes affect only later app tasks and do not modify the instance's global software sources. Custom endpoints must use HTTPS and contain no credentials, query, or fragment.
+
+### Remote Desktop Component
+
+**Remote Desktop** is a managed component, not a regular launchable app. Install or repair it under **Instance settings → Apps**, then enable it under **Instance settings → Remote Desktop**. See [Remote Desktop](/en/workspace/remote-desktop) for setup, permissions, and controls.
 
 ## Terminal and Browser
 

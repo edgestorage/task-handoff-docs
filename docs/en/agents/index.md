@@ -1,6 +1,6 @@
 # Codex and OpenCode
 
-TaskHandoff currently focuses on two AI agents: **Codex** and **OpenCode**. Both use the unified AI session interface for creation, live progress, messages, permissions, stopping, history, and recovery.
+TaskHandoff currently supports two managed AI agents: **Codex** and **OpenCode**. Both use the unified AI session interface for creation, live progress, messages, permissions, stopping, history, and recovery.
 
 ::: tip Choosing an agent
 Choose Codex for deep Codex integration, context mentions, and multi-agent work. Choose OpenCode for its provider ecosystem and Chat Completions-compatible models.

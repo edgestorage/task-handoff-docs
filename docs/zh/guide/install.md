@@ -89,7 +89,12 @@ chmod +x TaskHandoff-版本-linux-x86_64.AppImage
 
 ### 系统要求
 
-服务器一键安装面向带 `systemd` 的 Debian 或 Ubuntu。安装过程需要 root 权限和访问 GitHub、npm 及软件源的网络；使用 Docker Runtime 时还需要受支持的 Docker 环境。
+服务器一键安装面向带 `systemd` 的 Debian 或 Ubuntu。安装过程需要 root 权限和访问 GitHub、npm 及软件源的网络。
+
+- 运行环境：Node.js 24.15 或更高版本（需要包含 `npm`），或 Bun 1.4.4 或更高版本；
+- 安装和更新：仍需要 `npm` 与 `curl`，即使服务最终由 Bun 运行；
+- Docker：仅在创建 Docker Runtime 实例时需要受支持的 Docker daemon；
+- Node Agent 与受控实例会自动检测当前 JavaScript 运行时，通常不需要手动选择。
 
 ### 一键安装
 
@@ -99,9 +104,9 @@ chmod +x TaskHandoff-版本-linux-x86_64.AppImage
 curl -fsSL https://github.com/edgestorage/task-handoff/releases/latest/download/install-server.sh | sudo sh
 ```
 
-安装程序会准备 Node.js 24、Docker、Control Plane、本机 Node Agent 和受控实例运行时，并创建两个 `systemd` 服务。默认 Control Plane 监听 `0.0.0.0:8081`，启用密码认证。
+安装程序会准备 Node.js 24.15 或更高版本、Docker、Control Plane、本机 Node Agent 和受控实例运行时，并创建两个 `systemd` 服务。默认 Control Plane 监听 `0.0.0.0:8081`，启用密码认证。
 
-如果服务器已有 Node.js 和 Docker，也可以安装统一服务包：
+如果服务器已有兼容的 Node.js 与 `npm`，以及使用 Docker Runtime 时所需的 Docker，也可以安装统一服务包：
 
 ```sh
 sudo npm install -g @task-handoff/server@latest

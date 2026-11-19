@@ -2,8 +2,8 @@
 
 TaskHandoff centrally manages AI workspaces, instances, sessions, and automation across local and remote nodes.
 
-::: info Primary AI agents
-TaskHandoff currently focuses on **Codex** and **OpenCode**. Both use the unified interface for creating, supervising, and recovering AI work. See [Codex and OpenCode](/en/agents/).
+::: info Supported AI agents
+TaskHandoff currently supports **Codex** and **OpenCode** as managed AI kernels. Both use the unified interface for creating, supervising, and recovering AI work. See [Codex and OpenCode](/en/agents/).
 :::
 
 Sessions default to TaskHandoff's distinctive [Compact mode](/en/sessions/#compact-and-conversation-modes), which focuses on the current task turn and greatly reduces interference from full message history. Conversation mode remains available whenever the complete chronology is needed.
@@ -41,6 +41,7 @@ This guide is for TaskHandoff administrators and regular users. Steps that requi
 - [Use AI Sessions](/en/sessions/): session creation, permissions, messages, progress, and session management.
 - [Repository Workflows](/en/workspace/repository): files, changes, worktrees, branches, and remote delivery.
 - [Apps and Terminal](/en/workspace/apps-terminal): managed apps, terminal access, and browser previews.
+- [Remote Desktop](/en/workspace/remote-desktop): component setup, source selection, input, clipboard, transports, and TURN.
 
 ### Organization and Administration
 

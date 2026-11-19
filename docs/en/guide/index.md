@@ -1,6 +1,37 @@
 # About TaskHandoff
 
-TaskHandoff is a self-hosted control plane for AI workspaces. It creates isolated development instances on different computers, primarily runs **Codex** and **OpenCode**, and brings sessions, files, code changes, and runtime status into one interface.
+TaskHandoff is a free, open-source, self-hostable control plane for AI remote work. Connect from the macOS, Windows, or Linux desktop client or a browser, create isolated workspaces on different computers, and bring sessions, files, code changes, and runtime status into one interface. Managed AI sessions currently support **Codex** and **OpenCode**.
+
+## Use Cases
+
+- Connect multiple workstations or servers to one Control Plane and let agents work on those devices without switching between separate environments;
+- write code, inspect progress, and manage servers from Desktop, a browser, Mobile, or chat wherever you are;
+- run agents in isolated containers today while keeping a unified path toward a future Kubernetes runtime.
+
+## Product Focus
+
+- **One entry point** for all connected devices, workspaces, and AI sessions;
+- **multi-terminal access** through Desktop, browser, Mobile, and chat for remote collaboration;
+- **server management for large-scale environments**, with lifecycle and operational state centralized in one Control Plane.
+
+## Current Scope
+
+- **Agent kernels:** Codex and OpenCode only. Claude is available only as a compatibility path in some existing images or configurations and is not a first-class supported kernel.
+- **Remote Desktop:** window-level capture is supported, along with the entire desktop, a single application, or a custom region. Session previews are read-only.
+- **Instance runtimes:** Docker container instances are supported today, alongside a built-in Local Runtime.
+- **Kubernetes:** runtime support is still under development and is not yet a supported deployment target.
+
+## Cloud Service and Security
+
+TaskHandoff can be fully self-hosted, or you can bind the optional Thandoff Cloud to reach your Control Plane from the public Internet or a mobile network. The cloud relay handles account discovery, connection coordination, and encrypted traffic forwarding; it does not hold workspace content or approve device access on an administrator's behalf.
+
+- **Official accounts:** sign in with email and password, Google/GitHub/Apple OAuth, email verification, TOTP or recovery codes, and passkeys. Review and revoke signed-in devices; sensitive actions require recent authentication;
+- **End-to-end encryption:** Relay forwards ciphertext frames and routing or metering identifiers only, without storing plaintext requests, AI sessions, files, or terminal content;
+- **China and global nodes:** relay nodes are selected by client proximity to reduce latency when working across regions;
+- **One home data region:** account, binding, sharing, and audit records live in one home data region, without cross-region replication or automatic failover;
+- **Free remote access:** remote work is free. Relay traffic allowances exist only to prevent abuse, and reasonable usage can be raised free of charge.
+
+For Control Plane access through cloud relay, clients also verify the pinned Control Plane fingerprint, a device private-key signature, and local approval. The cloud can interrupt or delay a connection, but it cannot decrypt business content or approve a device for an administrator. See [Remote Access](/en/integrations/remote-access) and [Use a Thandoff Account](/en/integrations/thandoff-account) for the complete flows.
 
 ## What It Does
 
@@ -29,7 +60,7 @@ The runtime that contains a workspace and AI tools. Docker Runtime supports mult
 
 ### AI Session
 
-One AI task running in an instance and a fixed working directory. TaskHandoff primarily supports Codex and OpenCode. Sessions accept messages and attachments and report tools, approvals, and results; advanced capabilities vary by agent.
+One AI task running in an instance and a fixed working directory. TaskHandoff currently supports Codex and OpenCode as managed agent kernels. Sessions accept messages and attachments and report tools, approvals, and results; advanced capabilities vary by agent.
 
 ### Command Line and Agent Skill
 

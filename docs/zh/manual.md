@@ -2,8 +2,8 @@
 
 TaskHandoff 用于集中管理本机和远程节点上的 AI 工作空间、实例、会话及自动化任务。
 
-::: info 主要支持的 AI Agent
-TaskHandoff 当前主要支持 **Codex** 和 **OpenCode**。两者均可通过统一的会话界面创建、监管和恢复任务，详细差异见 [Codex 与 OpenCode](/zh/agents/)。
+::: info 当前支持的 AI Agent
+TaskHandoff 当前受管 AI 内核为 **Codex** 和 **OpenCode**。两者均可通过统一的会话界面创建、监管和恢复任务，详细差异见 [Codex 与 OpenCode](/zh/agents/)。
 :::
 
 会话默认采用 TaskHandoff 特色的[简洁模式](/zh/sessions/#简洁模式与对话模式)，聚焦当前任务回合，大幅减少完整历史消息带来的阅读干扰；需要追溯全过程时可随时切换到对话模式。
@@ -41,6 +41,7 @@ TaskHandoff 当前主要支持 **Codex** 和 **OpenCode**。两者均可通过�
 - [使用 AI 会话](/zh/sessions/)：创建会话、权限模式、消息、执行过程和多会话管理。
 - [仓库协作](/zh/workspace/repository)：文件、变更、worktree、分支及远端交付。
 - [应用与终端](/zh/workspace/apps-terminal)：应用安装与启动、终端和浏览器预览。
+- [远程桌面](/zh/workspace/remote-desktop)：安装组件、选择画面、输入、剪贴板、连接方式和 TURN。
 
 ### 组织与管理
 

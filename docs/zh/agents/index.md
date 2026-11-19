@@ -1,6 +1,6 @@
 # Codex 与 OpenCode
 
-TaskHandoff 当前主要支持两个 AI Agent：**Codex** 和 **OpenCode**。两者都通过统一的 AI 会话界面运行，可以创建会话、发送任务、查看实时输出、处理权限请求、停止任务和管理历史。
+TaskHandoff 当前支持两个受管 AI Agent：**Codex** 和 **OpenCode**。两者都通过统一的 AI 会话界面运行，可以创建会话、发送任务、查看实时输出、处理权限请求、停止任务和管理历史。
 
 ::: tip 推荐定位
 需要深度 Codex 集成、多 Agent 和上下文提及时优先选择 Codex；需要使用 OpenCode 生态及兼容 Chat Completions 的模型时选择 OpenCode。

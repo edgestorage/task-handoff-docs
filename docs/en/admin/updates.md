@@ -19,6 +19,14 @@ The updater preserves service identity, ports, data directories, IPC, and authen
 
 Node details provide rollout controls. The updated Node Agent converges running instances to the desired runtime version. Active work receives a bounded drain period; stopped instances update before their next normal start.
 
+## Managed Apps and the Remote Desktop Component
+
+Managed apps and the **Remote Desktop** component follow a release cadence independent of the Control Plane, Node Agent, and controlled-instance version. A successful server or node update does not mean these apps are already current.
+
+Check, install, update, or repair components under **Instance Settings → Apps**. App updates select the target version from the current built-in recipe and preserve user configuration, AI sessions, and workspaces. Running app sessions are not actively terminated and use the new version on their next launch. Existing Remote Desktop connections may become temporarily unavailable or need to reconnect while the component updates.
+
+A missing Remote Desktop component must not block instance or node updates. Finish the update, then return to Apps to install or repair it, and confirm enablement under **Instance Settings → Remote Desktop**.
+
 Desktop uses its own release channel and installer.
 
 ## Before Updating

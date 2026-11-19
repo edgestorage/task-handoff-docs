@@ -45,6 +45,18 @@ Open **Instance settings → Git credentials**, verify that exactly one retained
 
 Verify stable browser access to the control plane and ensure the reverse proxy supports WebSocket connections. Reloading fetches an authoritative snapshot and does not intentionally stop background work.
 
+## Remote Desktop Will Not Connect or Accept Input
+
+1. Open the Control Plane through HTTPS, `localhost`, or an administrator-approved private-network address. A remote plain-HTTP origin is rejected for remote desktop signaling.
+2. Confirm the instance is running and its platform is supported. Under **Instance Settings → Remote Desktop**, verify that the component is installed and enabled. If it is missing or unhealthy, go to **Apps** to install, update, or repair it.
+3. macOS hosts require Screen Recording and Accessibility permissions. Grant them, return to instance settings, and recheck. Some permission changes take effect only after the component restarts.
+4. If the image is visible but input does not work, enable input and check whether **Another viewer is controlling** appears. Multiple viewers may watch, but only one may control at a time; select **Request control** when necessary.
+5. If the capture source is unavailable, select the entire desktop, a single window, an application, or a custom region again. Closed windows and invalid regions do not recover automatically.
+6. Session cards and floating previews are always read-only. On Mobile, open the full Remote Desktop viewer before enabling input or clipboard access.
+7. Check the active transport in connection details. Frequent WebSocket fallback usually means direct WebRTC/UDP is restricted; configure TURN and review NAT, firewall, proxy, and UDP policy.
+
+If TURN relay times out or is unavailable, check URL prefixes, authentication, TURN-server firewall rules and ports, and clock synchronization between the Control Plane and TURN server. If the WebSocket compatibility path was disabled, a WebRTC failure disconnects by design rather than switching methods. See [Remote Desktop](/en/workspace/remote-desktop) for the full guide.
+
 ## An Agent Cannot Call thctl
 
 - Confirm the CLI is installed: run `thctl --version`, and install it with `npm install -g @task-handoff/thctl` if it is missing.

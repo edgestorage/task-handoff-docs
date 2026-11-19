@@ -7,23 +7,23 @@ const props = defineProps<{ locale?: 'zh' | 'en'; pathPrefix?: string }>()
 
 const copy = {
   zh: {
-    eyebrow: '自托管 AI 工作空间控制面板',
-    description: '在一个自托管工作台中运行 Codex 与 OpenCode，管理本机和远程 AI 开发任务、工作空间与代码审阅',
+    eyebrow: '免费、开源、可自托管的 AI 远程工作与服务器运维控制面板',
+    description: '跨机器管理 AI 会话、Docker 工作区与代码仓库；从桌面、浏览器和移动端接入，官方账号与端到端加密中继覆盖中国与全球节点',
     primary: '开始使用',
-    secondary: '看看工作台',
+    secondary: '查看文档',
     toolsLabel: '为你熟悉的工具而建',
     galleryLabel: '从想法到交付，每一种工作都有自己的位置。以下为场景示意',
     productTitle: '不必在窗口之间\n找回工作的上下文',
     productDescription: '从任务到会话，从本机到远程。你需要的视角，都在同一个工作台里',
-    featureDescription: '把分散的会话、代码和环境放在一起。少一点切换，多一点专注',
+    featureDescription: '一个入口统一设备、工作区与 AI 会话；Docker 环境按任务扩展；桌面、浏览器和移动端通过端到端加密中继安全接续',
     featureLink: '了解更多',
-    heroNote: '桌面安装或服务器部署，由你选择',
+    heroNote: '免费远程工作；桌面安装或服务器部署，由你选择',
     previews: [
       { label: '工作台', image: '/images/workbench-light-mode.png', alt: 'TaskHandoff Story 工作台：组织文档、会话与自动化', detail: '把文档、会话和自动化，放回同一个任务里', width: 1960, height: 1423 },
       { label: 'AI 会话', image: '/images/ai-session-view-modes.png', alt: 'TaskHandoff AI 会话：查看当前任务和工具活动', detail: '聚焦当前回合，执行过程与完整历史随时可查', width: 1960, height: 1424 },
       { label: '远程节点', image: '/images/node-management-overview.png', alt: 'TaskHandoff 节点管理：统一查看本机与远程运行环境', detail: '环境可以分布各处，管理入口始终只有一个', width: 1960, height: 1424 }
     ],
-    heroLines: ['TaskHandoff', '自托管 AI 开发工作台'],
+    heroLines: ['TaskHandoff', 'AI 远程工作与服务器运维'],
     previewLabel: '工作台预览',
     workflowTitle: '不只发起对话，也管理工作的全程',
     workflowDescription: '每一步都有明确的运行环境、执行状态和交付去向。你可以专注于决策，把过程交给 TaskHandoff',
@@ -33,11 +33,11 @@ const copy = {
       ['03', '分派 AI 任务', '选择 Agent、模型、固定工作目录与权限模式'],
       ['04', '审阅并交付', '核对工具活动与 Git 变更，通过分支或 worktree 交付']
     ],
-    featureTitle: '一个工作台\n装下你的整个开发流程',
+    featureTitle: '一个控制面板\n管住分散在多台机器上的 AI 工作',
     features: [
-      ['会话保持清晰', '简洁模式聚焦当前任务回合；需要追溯时，再切换到完整对话'],
-      ['工作区彼此隔离', '用实例与 worktree 同时推进多个任务，避免文件和分支相互干扰'],
-      ['随处掌握进度', '通过桌面端、Web、移动端和聊天桥接接入同一个控制面']
+      ['一个入口管理所有设备', '把本机、开发机和服务器接入同一个控制面板，集中查看实例、AI 会话和运行状态'],
+      ['用 Docker 隔离每项任务', '在同一节点创建多个独立容器实例，用镜像和环境模板准备不同项目的工具与依赖'],
+      ['多终端安全接续', '桌面、浏览器、移动端和聊天入口访问同一工作；支持窗口级远程桌面和端到端加密云中继']
     ],
     docsEyebrow: '文档导航',
     docsTitle: '从你现在要做的事开始',
@@ -62,6 +62,7 @@ const copy = {
     faqDescription: '先了解运行方式，再选择适合你的工作环境',
     faqLink: '查看全部常见问题',
     faqs: [
+      ['远程工作需要付费吗？', '通过官方云中继的远程工作本身免费；流量额度只用于防滥用，合理使用可免费提升。自托管不依赖 Thandoff Cloud，也不受云中继额度影响'],
       ['需要安装 Docker 吗？', '不一定。Local Runtime 可以直接使用宿主机工具和目录；需要多个隔离实例时选择 Docker。同一宿主用户只能运行一个 Local Runtime 实例'],
       ['可以同时使用 Codex 和 OpenCode 吗？', '可以在同一个工作台创建和管理两种 Agent 的会话。每个会话选择对应 Agent 和模型，部分高级功能因 Agent 而异'],
       ['关闭网页后，任务还会继续吗？', '会。任务运行在受控实例中，关闭网页不会停止任务。停止实例、关闭会话或停止相关运行服务则可能中断任务；退出桌面应用与关闭网页也不同'],
@@ -70,30 +71,30 @@ const copy = {
     ],
     finalTitle: '下一项任务\n从这里开始',
     finalDescription: '连接你的环境，选择你的 Agent。让任务有自己的工作空间，让你始终掌握关键决策',
-    finalAction: '搭建我的工作台',
-    footerDescription: '你的环境 · 你的 Agent\n一个有条理的 AI 工作台',
+    finalAction: '搭建我的控制面板',
+    footerDescription: '你的环境 · 你的 Agent\n一个 AI 远程工作控制面板',
     footerGuide: '开始探索',
     footerProject: '项目与支持',
     footerLinks: ['安装指南', '用户手册', '常见问题', '源代码', '版本下载', '反馈问题']
   },
   en: {
-    eyebrow: 'A self-hosted AI workspace control plane',
-    description: 'Run Codex and OpenCode in one self-hosted workbench for local and remote AI development, workspace management, and code review',
+    eyebrow: 'A free, open-source, self-hostable control plane for AI remote work and server operations',
+    description: 'Manage AI sessions, Docker workspaces, and repositories across machines; connect from desktop, browser, or mobile through official accounts and end-to-end encrypted relay nodes in China and around the world',
     primary: 'Get started',
-    secondary: 'Explore the workbench',
+    secondary: 'Read the docs',
     toolsLabel: 'Built around the tools you already use',
     galleryLabel: 'From the first idea to the final review. Illustrative product scenarios',
     productTitle: 'Your work belongs together\nNot in scattered windows',
     productDescription: 'From tasks to sessions, from local to remote. Find every perspective in the same workbench',
-    featureDescription: 'Bring your conversations, code, and environments together. Less switching. More focus',
+    featureDescription: 'One entry point for devices, workspaces, and AI sessions; Docker environments that scale task by task; secure end-to-end relay access from desktop, browser, and mobile',
     featureLink: 'Learn more',
-    heroNote: 'Install on your desktop or deploy your own server',
+    heroNote: 'Remote work is free; install on your desktop or deploy your own server',
     previews: [
       { label: 'Workbench', image: '/images/workbench-overview-en.png', alt: 'TaskHandoff workbench with the instance sidebar and AI workspace', detail: 'Instances, sessions, and controls. Together in one workbench', width: 2178, height: 1664 },
       { label: 'AI sessions', image: '/images/instance-detail-en.png', alt: 'TaskHandoff instance with an English AI session composer', detail: 'Choose a workspace and agent, then start the next task', width: 2350, height: 1664 },
       { label: 'Stories', image: '/images/story-overview-en.png', alt: 'TaskHandoff Story with actions, documents, sessions, and automation', detail: 'Keep long-running work and its context in one place', width: 2350, height: 1664 }
     ],
-    heroLines: ['TaskHandoff', 'The self-hosted AI development workbench'],
+    heroLines: ['TaskHandoff', 'AI remote work and server operations'],
     previewLabel: 'Workbench preview',
     workflowTitle: 'Manage the whole job, not just the conversation',
     workflowDescription: 'Every step has a clear environment, execution state, and delivery path. Focus on decisions while TaskHandoff keeps the process together',
@@ -103,11 +104,11 @@ const copy = {
       ['03', 'Delegate the task', 'Choose the agent, model, fixed working directory, and permission mode'],
       ['04', 'Review and deliver', 'Check tool activity and Git changes, then ship via branch or worktree']
     ],
-    featureTitle: 'One workbench for\nyour whole development flow',
+    featureTitle: 'One control plane for AI work\nacross all your machines',
     features: [
-      ['Sessions stay clear', 'Compact mode focuses on the current turn; switch to the full conversation when you need to audit'],
-      ['Workspaces stay isolated', 'Push several tasks at once with instances and worktrees, without files or branches colliding'],
-      ['Progress everywhere', 'Reach the same control plane from desktop, web, mobile, and chat bridges']
+      ['One entry for every device', 'Bring workstations, development machines, and servers into one Control Plane with instances, AI sessions, and runtime state in view'],
+      ['A Docker environment per task', 'Create isolated container instances on one node and prepare project-specific tools with images and environment templates'],
+      ['Secure access from every client', 'Reach the same work from desktop, browser, mobile, or chat, with window-level Remote Desktop and end-to-end encrypted cloud relay']
     ],
     docsEyebrow: 'Documentation',
     docsTitle: 'Start from what you need to do',
@@ -132,6 +133,7 @@ const copy = {
     faqDescription: 'Understand how it runs. Choose the environment that fits',
     faqLink: 'Read all frequently asked questions',
     faqs: [
+      ['Does remote work cost anything?', 'Remote work through the official cloud relay is free. Traffic allowances exist only to prevent abuse and can be raised free of charge for reasonable use. Self-hosting does not require Thandoff Cloud or use relay allowances'],
       ['Do I need Docker?', 'Not necessarily. Local Runtime uses tools and directories on the host. Choose Docker for multiple isolated instances. Each host user can run only one Local Runtime instance'],
       ['Can I use Codex and OpenCode together?', 'Yes. Create and manage sessions for both agents in one workbench. Each session uses its selected agent and model; some advanced capabilities differ between agents'],
       ['Will tasks continue after I close the browser?', 'Yes. Tasks run in controlled instances, not in the browser tab. Stopping an instance, closing a session, or stopping its runtime services can interrupt work. Quitting the desktop app is also different from closing a tab'],
@@ -140,8 +142,8 @@ const copy = {
     ],
     finalTitle: 'Your next task\nStart it here',
     finalDescription: 'Connect your environment. Choose your agent. Give every task its own workspace, and keep the important decisions in your hands',
-    finalAction: 'Set up my workbench',
-    footerDescription: 'Your environment · Your agents\nOne organized AI workbench',
+    finalAction: 'Set up my control plane',
+    footerDescription: 'Your environment · Your agents\nOne control plane for AI remote work',
     footerGuide: 'Explore',
     footerProject: 'Project & support',
     footerLinks: ['Installation', 'User guide', 'FAQ', 'Source code', 'Releases', 'Report an issue']

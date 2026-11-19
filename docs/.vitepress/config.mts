@@ -104,7 +104,8 @@ const zhSidebarRoutes = [
       { text: '实例设置', link: '/instances/settings' },
       { text: '使用 AI 会话', link: '/sessions/' },
       { text: '仓库协作', link: '/workspace/repository' },
-      { text: '应用与终端', link: '/workspace/apps-terminal' }
+      { text: '应用与终端', link: '/workspace/apps-terminal' },
+      { text: '远程桌面', link: '/workspace/remote-desktop' }
     ]
   },
   {
@@ -184,7 +185,8 @@ const enSidebarRoutes = [
       { text: 'Instance Settings', link: '/en/instances/settings' },
       { text: 'Use AI Sessions', link: '/en/sessions/' },
       { text: 'Repository Workflows', link: '/en/workspace/repository' },
-      { text: 'Apps and Terminal', link: '/en/workspace/apps-terminal' }
+      { text: 'Apps and Terminal', link: '/en/workspace/apps-terminal' },
+      { text: 'Remote Desktop', link: '/en/workspace/remote-desktop' }
     ]
   },
   {

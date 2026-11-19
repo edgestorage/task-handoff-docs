@@ -89,7 +89,12 @@ Do not expose Desktop's default loopback, no-auth configuration to a LAN or the 
 
 ### Requirements
 
-The one-command server installer targets Debian or Ubuntu with `systemd`. Installation requires root access and network access to GitHub, npm, and system package repositories. Docker Runtime also requires a supported Docker environment.
+The one-command server installer targets Debian or Ubuntu with `systemd`. Installation requires root access and network access to GitHub, npm, and system package repositories.
+
+- Runtime: Node.js 24.15 or newer with `npm`, or Bun 1.4.4 or newer;
+- Installation and updates: `npm` and `curl` are still required even when Bun runs the services;
+- Docker: required only for Docker Runtime instances and must have a supported Docker daemon;
+- Node Agent and controlled instances detect the available JavaScript runtime automatically; manual selection is normally unnecessary.
 
 ### One-command Install
 
@@ -99,9 +104,9 @@ Run the installer published with the official GitHub Release:
 curl -fsSL https://github.com/edgestorage/task-handoff/releases/latest/download/install-server.sh | sudo sh
 ```
 
-It prepares Node.js 24, Docker, Control Plane, the local Node Agent, and controlled-instance runtime, then creates two `systemd` services. Control Plane listens on `0.0.0.0:8081` with password authentication by default.
+It prepares Node.js 24.15 or newer, Docker, Control Plane, the local Node Agent, and controlled-instance runtime, then creates two `systemd` services. Control Plane listens on `0.0.0.0:8081` with password authentication by default.
 
-If Node.js and Docker are already installed:
+If a compatible Node.js with `npm`, plus Docker when needed for Docker Runtime, is already installed:
 
 ```sh
 sudo npm install -g @task-handoff/server@latest

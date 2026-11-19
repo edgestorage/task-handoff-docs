@@ -67,6 +67,12 @@ Conversation mode presents user messages, AI responses, and per-turn activity in
 
 The selected mode is stored in the current browser and reused for other sessions. It changes presentation only, not Codex/OpenCode execution, model context, or files on disk.
 
+## Remote Desktop in a Session
+
+After Remote Desktop is enabled for an instance, open it from the session action menu or resource sidebar. TaskHandoff keeps a session-scoped entry. The card and floating preview are read-only; open the full remote desktop surface before enabling input.
+
+The preview opens in a floating window by default. Change it under **Settings → Basic → Appearance → Remote desktop card** to expand inline in the session. Switching sources or removing the entry from the session does not stop the instance. See [Remote Desktop](/en/workspace/remote-desktop) for setup, permissions, and controls.
+
 ## Manage Sessions
 
 Session lists mark unread AI sessions so you can quickly find work that needs attention. Switch sessions from the instance sidebar, AI board, or Story. Closing a session stops its active work. **Close all sessions** affects every session on the current instance.

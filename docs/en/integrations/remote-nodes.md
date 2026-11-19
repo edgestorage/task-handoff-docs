@@ -9,6 +9,7 @@ Open **Settings → Nodes → Add node**. The wizard checks public Control Plane
 | Reverse WSS | Node Agent | Remote node can reach the Control Plane | Expose only the Control Plane |
 | Direct HTTPS | Control Plane | Control Plane can reach the Node Agent | Expose the Node Agent HTTPS API |
 | Trusted Control Plane proxy | Current Control Plane | Another reachable Control Plane already manages the node | Current plane can reach the proxy plane |
+| Cloud node relay | Control Plane / Node Agent in the account | Neither side can accept ingress, and the node is bound to the same Thandoff account | Both sides only need outbound access to Thandoff Cloud |
 
 Reverse WSS is normally preferred. It avoids public Node Agent listening, NAT, and TLS configuration, and the Node Agent persists the connection and reconnects after service restarts.
 
@@ -67,6 +68,48 @@ sudo task-handoff-node-agent invite \
 
 Public Node Agent endpoints must use HTTPS. Changing the listener to `0.0.0.0` only expands the bind scope; it does not configure TLS, firewall rules, or authentication. A port change is rejected while running instances still reference the old callback port. Stop those instances, change the port, then restart them. Existing direct Control Planes must also update their endpoints manually.
 
+## Use Thandoff Cloud Node Relay
+
+Cloud node relay fits when neither the Control Plane nor the Node Agent can accept inbound connections. Bind the Node Agent to a Thandoff account, then let other Control Planes in that account use it through the cloud relay.
+
+Requirements:
+
+- the current Control Plane is signed in and bound to the Thandoff account;
+- the target Node Agent is online and added to the same account;
+- the Node Agent has approved the current Control Plane's trust request.
+
+### Connect an Existing Account Node
+
+1. Open node details in a Control Plane that already manages the target node.
+2. Open **Cloud node** and select **Add to cloud**. This does not change the node's existing connection to that Control Plane.
+3. In the Control Plane that needs access, select **Add node → Use cloud relay**.
+4. Select the target node from the account node list and start connecting.
+5. Compare the code on the node and approve Control Plane trust.
+6. Return to the wizard and confirm both the cloud channel and management channel are connected.
+
+### Add a New Node Agent
+
+1. In the target Control Plane's add-node wizard, select **Add a new Node Agent**.
+2. Choose **New machine, install and bind** or **Already installed, bind only**.
+3. Copy the one-time command and run it on the target host.
+4. Approve trust on the target node or in the Control Plane that already manages it, following the UI.
+5. Keep the wizard open until the node channel is established.
+
+The one-time binding command is shown once and expires. Node installation, version changes, and instance lifecycle remain owned by the Node Agent; the cloud relay is only a connection path.
+
+### Trust, Sharing, and Unbinding
+
+The first time a node accepts a Control Plane, or when the Control Plane public key or access context changes, TaskHandoff creates a **Node Control Plane trust** request. Compare the code in the Approval Center of a Control Plane that manages the node, or run on the target node:
+
+```sh
+task-handoff-node-agent trust list
+task-handoff-node-agent trust approve <requestId> --comparison-code '<comparison-code>'
+```
+
+Node details list trusted Control Planes and their last verification time. The current Control Plane cannot revoke its own trust from the same UI; use `task-handoff-node-agent trust` on the node. Other Control Planes can be revoked directly.
+
+Shared node access may include an expiry. After it expires or is revoked, Control Planes relying on that share cannot establish new connections. Unbinding a node from the account does not stop the node, its instances, or other connections to the current Control Plane.
+
 ## Use a Trusted Control Plane Proxy
 
 Let A be the current Control Plane, R the trusted proxy Control Plane, and B the target node already managed by R:
@@ -81,10 +124,6 @@ R can read, modify, and perform every proxied Node Agent operation on A's behalf
 
 The proxy binding is fixed to the node selected when the invite was created. Disabling the proxy node on A stops A from initiating operations but leaves the binding on R. Normal deletion asks R to revoke first. Force deletion while R is unreachable can leave a remote credential behind, which must be revoked manually on R after recovery.
 
-::: info Account-based node relay
-The add-node wizard describes a Thandoff account option, but account-based Node Agent relay is not yet supported by the protocol. Use a trusted Control Plane proxy here; [Thandoff account remote access](/en/integrations/thandoff-account) is a different client-to-Control Plane path.
-:::
-
 ## State and Troubleshooting
 
 | State or symptom | Meaning and action |
@@ -93,6 +132,9 @@ The add-node wizard describes a Thandoff account option, but account-based Node 
 | `reconnecting` | A configured connection was interrupted; fix the network or remote service without re-pairing |
 | Node online, instance offline | Node transport works; inspect the instance process and runtime |
 | Proxy reachable, target offline | A can reach R, but R does not currently observe B online |
+| Cloud node waiting for a channel | Check account binding, node online state, Node Agent cloud relay state, and last relay error |
+| Waiting for node trust approval | Compare the code on the node and approve; request again after rejection or expiry |
+| Account node missing or share expired | Check the account, whether the node was added, and whether shared access is still valid |
 | Invite expired or invalid | Generate another one-time token and ensure another request did not consume it |
 | Port change rejected | Stop running instances that reference the old callback port and retry |
 
