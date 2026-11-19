@@ -51,6 +51,13 @@ Inside an AI session, the resource menu opens files, changes, and worktrees, and
 
 After the instance has the Remote Desktop component installed and enabled, open the full viewer from the AI session resource menu or inspect a saved preview card.
 
+For example, after an AI session opens the iPhone Simulator in Xcode's Device Hub on a macOS instance, the conversation shows a Remote Desktop card named after the simulator window and identifies its source. The card is a read-only preview; open it before interacting with the device.
+
+<figure class="doc-screenshot doc-phone">
+  <img src="/media/mobile/mobile-remote-desktop-en.png" width="720" height="1565" alt="iPhone Simulator Remote Desktop preview in a Mobile AI session">
+  <figcaption>The Remote Desktop card shows the device window and its source; open the full view before enabling input.</figcaption>
+</figure>
+
 - choose the entire desktop, a single window, an application, or another host-supported source on first use;
 - cards and floating previews are read-only; open the full viewer before enabling input;
 - direct touch, trackpad mouse mode, the system keyboard, the built-in virtual keyboard, and text clipboard are supported;

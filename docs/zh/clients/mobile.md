@@ -63,6 +63,13 @@ TaskHandoff Mobile 可在 iOS 和 Android 上连接用户管理的 Control Plane
 
 实例安装并启用远程桌面组件后，可以从 AI 会话资源菜单打开独立远程桌面，或从已保存的会话卡片查看预览。
 
+例如在 macOS 实例中打开 Xcode 的 iPhone 模拟器后，AI 会话里会出现以模拟器窗口命名的远程桌面卡片，并显示来源（如 Device Hub）。卡片是只读预览，点击后进入完整视图再操作。
+
+<figure class="doc-screenshot doc-phone">
+  <img src="/media/mobile/mobile-remote-desktop-zh.png" width="720" height="1565" alt="移动端 AI 会话中的 iPhone 模拟器远程桌面预览">
+  <figcaption>远程桌面卡片显示设备窗口和来源；点击进入完整视图后再启用操作。</figcaption>
+</figure>
+
 - 首次打开需要选择整桌面、单个窗口、应用或宿主支持的其他画面；
 - 会话中的卡片和浮动预览是只读的，点击后进入完整远程桌面再启用输入；
 - 支持直接触摸、触控板鼠标、系统键盘、内置虚拟键盘和文本剪贴板；
