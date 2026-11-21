@@ -5,7 +5,7 @@ const base = process.env.DOCS_BASE ?? '/'
 const siteOrigin = 'https://docs.thandoff.com'
 const socialImages = {
   en: `${siteOrigin}/images/workbench-overview-en.png`,
-  zh: `${siteOrigin}/images/workbench-light-mode.png`
+  zh: `${siteOrigin}/images/workbench-overview-light.png`
 }
 
 function pageRoute(relativePath: string) {

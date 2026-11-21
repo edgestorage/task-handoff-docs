@@ -19,7 +19,7 @@ const copy = {
     featureLink: '了解更多',
     heroNote: '免费远程工作；桌面安装或服务器部署，由你选择',
     previews: [
-      { label: '工作台', image: '/images/workbench-light-mode.png', alt: 'TaskHandoff Story 工作台：组织文档、会话与自动化', detail: '把文档、会话和自动化，放回同一个任务里', width: 1960, height: 1423 },
+      { label: '工作台', image: '/images/workbench-overview-light.png', alt: 'TaskHandoff 主界面：实例栏、AI 会话和主工作区', detail: '把文档、会话和自动化，放回同一个任务里', width: 2836, height: 1926 },
       { label: 'AI 会话', image: '/images/ai-session-view-modes.png', alt: 'TaskHandoff AI 会话：查看当前任务和工具活动', detail: '聚焦当前回合，执行过程与完整历史随时可查', width: 1960, height: 1424 },
       { label: '远程节点', image: '/images/node-management-overview.png', alt: 'TaskHandoff 节点管理：统一查看本机与远程运行环境', detail: '环境可以分布各处，管理入口始终只有一个', width: 1960, height: 1424 }
     ],
@@ -92,7 +92,7 @@ const copy = {
     previews: [
       { label: 'Workbench', image: '/images/workbench-overview-en.png', alt: 'TaskHandoff workbench with the instance sidebar and AI workspace', detail: 'Instances, sessions, and controls. Together in one workbench', width: 2178, height: 1664 },
       { label: 'AI sessions', image: '/images/instance-detail-en.png', alt: 'TaskHandoff instance with an English AI session composer', detail: 'Choose a workspace and agent, then start the next task', width: 2350, height: 1664 },
-      { label: 'Stories', image: '/images/story-overview-en.png', alt: 'TaskHandoff Story with actions, documents, sessions, and automation', detail: 'Keep long-running work and its context in one place', width: 2350, height: 1664 }
+      { label: 'Stories', image: '/images/story-overview-en.png', alt: 'TaskHandoff Story with a linked AI session and an iPhone Simulator Remote Desktop preview', detail: 'Keep long-running work and its context in one place', width: 2836, height: 1926 }
     ],
     heroLines: ['TaskHandoff', 'AI remote work and server operations'],
     previewLabel: 'Workbench preview',

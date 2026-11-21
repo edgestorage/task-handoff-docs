@@ -33,8 +33,8 @@ Story 是 TaskHandoff 中组织长期工作的核心单元。一个 Story 可以
 Story 中同时显示当前会话和已关闭的历史会话。关闭 Story 的全部会话会停止其中仍在运行的工作，确认前应检查活跃任务。
 
 <figure class="doc-screenshot">
-  <img src="/images/story-session-compact-view.png" alt="Story 中关联的 AI 会话简洁视图">
-  <figcaption>Story 将目标资料与关联的 Codex、OpenCode 会话放在同一工作区。</figcaption>
+  <img src="/images/story-overview-zh.png" alt="Story 工作区，中间为关联的 AI 会话，右侧为 iPhone 模拟器远程桌面预览">
+  <figcaption>Story 将长期工作、关联的 AI 会话和远程桌面预览放在同一工作区。</figcaption>
 </figure>
 
 ## 生命周期

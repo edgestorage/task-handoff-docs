@@ -3,7 +3,7 @@
 After sign-in, TaskHandoff opens its unified workbench. The top navigation switches product views, while the instance sidebar locates runtime environments.
 
 <figure class="doc-screenshot">
-  <img src="/images/workbench-overview-en.png" alt="TaskHandoff workbench overview">
+  <img src="/images/workbench-overview-dark.png" alt="TaskHandoff workbench in dark mode with the instance sidebar, session list, and main workspace">
   <figcaption>The workbench combines top-level navigation, the instance sidebar, session list, and main workspace.</figcaption>
 </figure>
 
@@ -23,8 +23,8 @@ After sign-in, TaskHandoff opens its unified workbench. The top navigation switc
 Search, sort, group, and resize the instance sidebar. Selecting an instance opens its AI and app sessions. Its menu provides lifecycle, settings, and deletion actions.
 
 <figure class="doc-screenshot">
-  <img src="/images/instance-switcher-en.png" alt="Instance switcher in the TaskHandoff workbench">
-  <figcaption>Switch directly between running instances from the workbench header.</figcaption>
+  <img src="/images/workbench-overview-light.png" alt="TaskHandoff workbench in light mode showing connected instances in the sidebar">
+  <figcaption>The instance sidebar lists connected instances and their state; select one to open its AI and app sessions.</figcaption>
 </figure>
 
 The instance board supervises multiple workspaces and supports filters, card sizes, app previews, and preview interaction. The AI board focuses on running, waiting, and failed AI sessions.
@@ -57,6 +57,11 @@ Instance details contain AI timelines, app sessions and terminals, browser previ
 
 After the instance has the Remote Desktop component installed and enabled, open it from the session action menu, resource sidebar, or instance details. Session cards and floating previews are read-only; open the full surface before enabling input or clipboard access.
 
+<figure class="doc-screenshot">
+  <img src="/images/remote-desktop-source-picker-en.png" width="2836" height="1926" alt="Remote Desktop source picker with Entire desktop and Single window options">
+  <figcaption>Choose the entire desktop or a single window, then review the source and connection details before opening the viewer.</figcaption>
+</figure>
+
 The preview uses a floating window by default. Change it under **Settings → Basic → Appearance → Remote desktop card** to expand inline in the session. See [Remote Desktop](/en/workspace/remote-desktop) for requirements and controls.
 
 ## Light and Dark Modes
@@ -64,13 +69,8 @@ The preview uses a floating window by default. Change it under **Settings → Ba
 TaskHandoff provides light and dark interfaces. Under **Settings → Basic → Theme**, choose **Follow system**, **Light**, or **Dark**. Follow system uses the current operating system or desktop-client appearance. The choice changes presentation only; it does not affect instances, AI sessions, or server data.
 
 <figure class="doc-screenshot">
-  <img src="/images/story-workspace-light-en.png" alt="TaskHandoff Story workspace in light mode">
-  <figcaption>The Story workspace in light mode.</figcaption>
-</figure>
-
-<figure class="doc-screenshot">
-  <img src="/images/story-workspace-dark-en.png" alt="TaskHandoff Story workspace in dark mode with a Story session and a Chrome window running in the container">
-  <figcaption>The Story workspace in dark mode, with a Story session and a Chrome window running in the container.</figcaption>
+  <img src="/images/story-overview-en.png" alt="TaskHandoff Story workspace in dark mode with a linked AI session and a Remote Desktop preview">
+  <figcaption>TaskHandoff in dark mode, with a Story session and a live Remote Desktop preview.</figcaption>
 </figure>
 
 ## Responsive Interface

@@ -27,8 +27,8 @@ The owner node determines where Story files live and which instances and session
 Create sessions inside the Story or attach unassigned sessions from its owner node. New sessions can use Codex or OpenCode with an explicit instance, directory, model, and permission mode.
 
 <figure class="doc-screenshot">
-  <img src="/images/story-overview-en.png" alt="Story overview with preset actions, documents, AI sessions, and automations">
-  <figcaption>A Story keeps preset actions, goal documents, related AI sessions, and automations in one workspace.</figcaption>
+  <img src="/images/story-overview-en.png" alt="Story workspace with a linked AI session and an iPhone Simulator Remote Desktop preview">
+  <figcaption>A Story keeps long-running work, its related AI sessions, and live Remote Desktop previews in one workspace.</figcaption>
 </figure>
 
 Archive completed Stories for later reading. Deleting a Story also deletes its file directory and cannot be undone. Move important deliverables into the project repository or another backup first.

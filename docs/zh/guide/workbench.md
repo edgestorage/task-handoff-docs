@@ -3,7 +3,7 @@
 登录后，TaskHandoff 会进入统一工作台。顶部主导航用于切换业务视图，左侧实例栏用于快速定位运行环境。
 
 <figure class="doc-screenshot">
-  <img src="/images/workbench-overview.png" alt="TaskHandoff 工作台整体界面">
+  <img src="/images/workbench-overview-dark.png" alt="TaskHandoff 工作台整体界面，包含主导航、实例栏、会话列表和主工作区">
   <figcaption>工作台由顶部主导航、左侧实例栏、会话列表和主工作区组成。</figcaption>
 </figure>
 
@@ -21,6 +21,11 @@
 ## 实例侧栏
 
 实例侧栏显示受管实例及其连接和运行状态。可以搜索实例、按名称/节点/状态排序、按节点分组，并调整侧栏宽度。选择实例后，主区域会显示该实例的 AI 会话和应用会话。
+
+<figure class="doc-screenshot">
+  <img src="/images/workbench-overview-light.png" alt="亮色模式下的 TaskHandoff 工作台，实例侧栏显示已连接实例及其状态">
+  <figcaption>实例侧栏列出已连接实例及其状态；选择后会打开该实例的 AI 和应用会话。</figcaption>
+</figure>
 
 实例菜单提供启动、停止、重启、设置和删除等操作。状态正在变化时，部分动作会暂时禁用，等待节点返回权威结果后再操作。
 
@@ -67,6 +72,11 @@ AI 看板只聚焦 AI 会话。运行中、等待审批和失败的会话更容�
 
 实例安装并启用远程桌面组件后，可以从会话操作菜单、资源栏或实例详情打开。会话中的卡片和浮动预览是只读画面，进入完整远程桌面后才启用输入和剪贴板。
 
+<figure class="doc-screenshot">
+  <img src="/images/remote-desktop-source-picker-zh.png" width="2836" height="1926" alt="远程桌面选择画面界面，提供整个桌面和单个窗口选项">
+  <figcaption>选择整个桌面或单个窗口，并确认画面来源与连接方式后，再打开远程桌面。</figcaption>
+</figure>
+
 预览默认使用浮动窗口，也可以在“设置 → 基本 → 外观 → 远程桌面卡片”中改为在会话内展开。详细要求见[远程桌面](/zh/workspace/remote-desktop)。
 
 ## 亮色与暗色模式
@@ -74,13 +84,8 @@ AI 看板只聚焦 AI 会话。运行中、等待审批和失败的会话更容�
 TaskHandoff 同时提供亮色和暗色界面，可以在“设置 → 基本 → 主题”中选择“跟随系统”“浅色”或“深色”。跟随系统会使用当前操作系统或桌面客户端的配色；主题只改变显示效果，不影响实例、AI 会话或服务器数据。
 
 <figure class="doc-screenshot">
-  <img src="/images/workbench-light-mode.png" alt="TaskHandoff 亮色模式界面">
-  <figcaption>亮色模式下的 Story 工作区。</figcaption>
-</figure>
-
-<figure class="doc-screenshot">
-  <img src="/images/story-workspace-dark-en.png" alt="暗色模式下的 TaskHandoff Story 工作区，包含 Story 会话和容器中运行的 Chrome 窗口">
-  <figcaption>暗色模式下的 Story 工作区，包含 Story 会话和容器中运行的 Chrome。</figcaption>
+  <img src="/images/story-overview-zh.png" alt="暗色模式下的 TaskHandoff Story 工作区，包含关联的 AI 会话和远程桌面预览">
+  <figcaption>暗色模式下的 Story 工作区，包含关联的 AI 会话和远程桌面预览。</figcaption>
 </figure>
 
 ## 响应式界面

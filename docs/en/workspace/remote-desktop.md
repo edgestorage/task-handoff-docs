@@ -38,6 +38,11 @@ Open Remote Desktop from:
 
 Choose a capture source on first use. Each viewer can independently select the entire desktop, a single window, an application, or a custom region, depending on host support. If a saved window closes or the source becomes invalid, select another source.
 
+<figure class="doc-screenshot">
+  <img src="/images/remote-desktop-source-picker-en.png" width="2836" height="1926" alt="Remote Desktop source picker with Entire desktop and Single window options">
+  <figcaption>Choose the entire desktop or a single window; the side panel shows the source, resolution, and connection methods before you open the viewer.</figcaption>
+</figure>
+
 ## Preview and Control
 
 The remote desktop card and floating preview in a session are read-only. Open the full Remote Desktop surface before enabling input or clipboard access.
