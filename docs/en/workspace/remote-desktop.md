@@ -47,11 +47,11 @@ Choose a capture source on first use. Each viewer can independently select the e
 
 The remote desktop card and floating preview in a session are read-only. Open the full Remote Desktop surface before enabling input or clipboard access.
 
-Remote Desktop scales the remote image to fit the available page area so the full source stays visible. After you resize the window, a notice reports the fitted dimensions.
+To make the remote application window follow the viewer area, open **More actions** in the upper-right corner of Remote Desktop, then select **Remote window size** → **Fit page area**. Once enabled, the remote window follows page-area size changes and reports the fitted dimensions; the encoded video resolution and frame rate are unchanged.
 
 <figure class="doc-screenshot">
-  <img src="/images/remote-desktop-window-fit.gif" width="1200" height="836" alt="Remote Desktop window automatically resizing to fit the page area and reporting the fitted dimensions">
-  <figcaption>As you resize the Remote Desktop window or page area, the image keeps adapting; when fitting completes, the notice reports the final dimensions.</figcaption>
+  <img src="/images/remote-desktop-window-fit.gif" width="1200" height="836" alt="Enabling Remote window size and Fit page area from the More actions menu, after which the remote window follows page-area size changes">
+  <figcaption>The demo enables **Remote window size → Fit page area** from the **More actions** menu; the remote window then follows page-area size changes and reports the final fitted dimensions.</figcaption>
 </figure>
 
 Available controls include:
